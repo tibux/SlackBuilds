@@ -1,0 +1,10 @@
+mod_auth_kerb: mod_auth_kerb (Kerberos Module for Apache)
+mod_auth_kerb:
+mod_auth_kerb: Mod_auth_kerb is an Apache module designed to provide Kerberos
+mod_auth_kerb: authentication to the Apache web server. The module also supports
+mod_auth_kerb: the Negotiate authentication method, which performs full Kerberos
+mod_auth_kerb: authentication based on ticket exchanges, and does not require
+mod_auth_kerb: users to insert their passwords to the browser.
+mod_auth_kerb:
+mod_auth_kerb: Homepage: http://modauthkerb.sourceforge.net/
+mod_auth_kerb:
