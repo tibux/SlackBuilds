@@ -1,0 +1,89 @@
+#!/bin/sh
+
+# Slackware build script for grouper
+# Written by Thibaut Notteboom (tib@tibux.org)
+
+PRGNAM=grouper
+VERSION=${VERSION:-2.1.0}
+ARCH="noarch"
+BUILD=${BUILD:-1}
+TAG=${TAG:-_SBo}
+
+if [ -z "$ARCH" ]; then
+  case "$( uname -m )" in
+    i?86) ARCH=i486 ;;
+    arm*) ARCH=arm ;;
+       *) ARCH=$( uname -m ) ;;
+  esac
+fi
+
+CWD=$(pwd)
+TMP=${TMP:-/tmp/SBo}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+
+set -e
+
+rm -rf $PKG
+mkdir -p $TMP $PKG $OUTPUT
+cd $TMP
+
+for SRCNAM in grouper.api grouper.psp; do
+  rm -rf $SRCNAM-$VERSION
+  tar xvf $CWD/src/$SRCNAM-$VERSION.tar.gz
+  cd $SRCNAM-$VERSION
+
+  chown -R root:root .
+  find . \
+   \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
+   -exec chmod 755 {} \; -o \
+   \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
+   -exec chmod 644 {} \;
+
+  cd -
+done
+
+# GROUPER API
+cd grouper.api-$VERSION
+ant dist
+ant javadoc
+
+mkdir -p $PKG/usr/bin $PKG/etc $PKG/share/grouper/dist $PKG/var/log/grouper
+
+cp -a bin/ lib/ $PKG/share/grouper
+cp -a dist/api $PKG/share/grouper/api
+cp -a dist/lib $PKG/share/grouper/dist
+cp -a conf $PKG/etc/grouper
+
+find $PKG/etc/grouper -name "*example*" -type f | xargs rm -f || true
+find $PKG/share/grouper -name "README.txt" -type f | xargs rm -f || true
+
+for i in `find $PKG/etc/grouper -name "*.xml" -o -name "*.properties" -type f`; do
+  mv $i $i.new
+done
+
+cd $PKG/usr/bin
+  ln -s $GROUPER_HOME/bin/gsh.sh gsh.sh
+cd -
+
+cd $PKG/share/grouper
+  ln -s ../../../etc/grouper conf
+  ln -s ../../../var/log/grouper logs
+cd -
+
+# GROUPER PSP
+cp -a $TMP/grouper.psp-$VERSION/lib/custom/* $PKG/share/grouper/lib/custom/
+cp -a $TMP/grouper.psp-$VERSION/conf/* $PKG/etc/grouper/
+
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION/
+cp -a \
+  API.txt LICENSE.txt README.txt build.example.properties \
+  $PKG/usr/doc/$PRGNAM-$VERSION
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
+
+cd $PKG
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
