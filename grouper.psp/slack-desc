@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+       |-----handy-ruler------------------------------------------------------|
+grouper.psp: grouper.psp (Internet2's Grouper Toolkit))
+grouper.psp:
+grouper.psp: Internet2's Grouper Toolkit enables project managers, departments,
+grouper.psp: institutions and end users to create and manage institutional and
+grouper.psp: personal groups, roles, and permissions. It puts control of a group
+grouper.psp: in the hands of its steward and enables the person to manage the
+grouper.psp: membership and what resources it can access.
+grouper.psp:
+grouper.psp: This package provides grouper.psp.
+grouper.psp:
+grouper.psp: Homepage : http://www.internet2.edu/grouper/ 
