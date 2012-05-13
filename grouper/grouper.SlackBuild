@@ -38,7 +38,6 @@ ant javadoc
 mkdir -p $PKG/usr/bin $PKG/etc $PKG/usr/share/grouper/dist $PKG/var/log/grouper
 
 cp -a bin/ lib/ $PKG/usr/share/grouper
-cp -a dist/api $PKG/usr/share/grouper/api
 cp -a dist/lib $PKG/usr/share/grouper/dist
 cp -a conf $PKG/etc/grouper
 
