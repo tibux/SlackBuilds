@@ -14,6 +14,6 @@ grouper: personal groups, roles, and permissions. It puts control of a group
 grouper: in the hands of its steward and enables the person to manage the
 grouper: membership and what resources it can access.
 grouper:
-grouper: This package provides grouper.api and grouper.psp.
+grouper: This package provides grouper.api.
 grouper:
 grouper: Homepage : http://www.internet2.edu/grouper/ 
