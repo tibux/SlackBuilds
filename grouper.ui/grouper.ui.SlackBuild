@@ -5,15 +5,28 @@
 
 PRGNAM=grouper.ui
 VERSION=${VERSION:-2.1.0}
+ARCH="noarch"
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
-
-ARCH="noarch"
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
+
+TOMCAT_HOME=/var/lib/tomcat
+
+if ! grep ^tomcat: /etc/group 2>&1 > /dev/null; then
+  echo "  Must have a tomcat group to run this script."
+  echo "    # groupadd -g 232 tomcat"
+  echo "  Or something similar."
+  exit 1
+elif ! grep ^tomcat: /etc/passwd 2>&1 > /dev/null; then
+  echo "  Must have a tomcat user to run this script."
+  echo "    # useradd -u 232 -g tomcat -d /var/lib/tomcat tomcat"
+  echo "  Or something similar."
+  exit 1
+fi
 
 set -e
 
@@ -33,8 +46,9 @@ find . \
 sed -e "s;../grouper;/usr/share/grouper;g" build.properties.template > build.properties
 ant war
 
-mkdir -p $PKG/var/lib/tomcat/webapp
-cp -r dist/grouper.war $PKG/var/lib/tomcat/webapp
+mkdir -p $PKG/$TOMCAT_HOME/webapps
+cp -a dist/grouper.war $PKG/$TOMCAT_HOME/webapps
+chown -R tomcat:tomcat $PKG/$TOMCAT_HOME
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION/
 cp -a README.txt $PKG/usr/doc/$PRGNAM-$VERSION
