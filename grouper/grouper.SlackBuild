@@ -5,12 +5,11 @@
 
 PRGNAM=grouper
 VERSION=${VERSION:-2.1.0}
+ARCH="noarch"
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
 SRCNAM=grouper.api
-
-ARCH="noarch"
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
