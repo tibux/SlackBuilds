@@ -1,0 +1,11 @@
+--- WEB-INF/struts-config.xml.orig	2012-05-16 21:15:34.113905953 +0200
++++ WEB-INF/struts-config.xml	2012-05-16 21:17:56.838167569 +0200
+@@ -366,7 +366,7 @@
+             type="edu.internet2.middleware.grouper.ui.actions.CallLoginAction"
+             unknown="false" validate="false">
+   
+-      <forward name="callLogin" path="/login.do" redirect="true"/>
++      <forward name="callLogin" path="/home.do" redirect="true"/>
+     </action>
+   
+     <action name="GroupFormBean" path="/deleteGroup" scope="request"
