@@ -60,6 +60,8 @@ chown -R tomcat:tomcat $PKG/$TOMCAT_HOME
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION/
 cp -a README.txt $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+cat $CWD/struts-config.xml.patch > $PKG/usr/doc/$PRGNAM-$VERSION/struts-config.xml.patch
+cat $CWD/web.xml.patch > $PKG/usr/doc/$PRGNAM-$VERSION/web.xml.patch
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
