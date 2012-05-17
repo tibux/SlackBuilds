@@ -47,10 +47,6 @@ for i in `find $PKG/etc/grouper -name "*.xml" -o -name "*.properties" -type f`; 
   mv $i $i.new
 done
 
-cd $PKG/usr/bin
-  ln -s $GROUPER_HOME/bin/gsh.sh gsh.sh
-cd -
-
 cd $PKG/usr/share/grouper
   ln -s ../../../etc/grouper conf
   ln -s ../../../var/log/grouper logs
