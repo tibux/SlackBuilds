@@ -46,7 +46,7 @@ find . \
 sed \
   -e "s;../grouper;/usr/share/grouper;g" \
   -e "s;#use.local.log4j=.*;use.local.log4j=true;" \
-  -e "s;#local.log4j.output-dir=.*;local.log4j.output-dir=/var/log/tomcat;" \
+  -e "s;#local.log4j.output-dir=.*;local.log4j.output-dir=/var/log/tomcat/;" \
   build.properties.template > build.properties
 
 mv log4j.template.properties log4j.properties
