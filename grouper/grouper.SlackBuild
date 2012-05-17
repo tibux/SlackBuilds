@@ -40,7 +40,7 @@ cp -a bin/ lib/ $PKG/usr/share/grouper
 cp -a dist/lib $PKG/usr/share/grouper/dist
 cp -a conf $PKG/etc/grouper
 
-find $PKG/etc/grouper --name "README.txt" -o -name "*example*" -type f | xargs rm -f || true
+find $PKG/etc/grouper -name "README.txt" -o -name "*example*" -type f | xargs rm -f || true
 find $PKG/usr/share/grouper -name "README.txt" -type f | xargs rm -f || true
 
 for i in `find $PKG/etc/grouper -name "*.xml" -o -name "*.properties" -type f`; do
