@@ -34,7 +34,7 @@ find . \
 ant dist
 ant javadoc
 
-mkdir -p $PKG/usr/bin $PKG/etc $PKG/usr/share/grouper/dist $PKG/var/log/grouper
+mkdir -p $PKG/etc $PKG/usr/share/grouper/dist $PKG/var/log/grouper
 
 cp -a bin/ lib/ $PKG/usr/share/grouper
 cp -a dist/lib $PKG/usr/share/grouper/dist
