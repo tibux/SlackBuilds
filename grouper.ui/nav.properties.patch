@@ -1,0 +1,263 @@
+--- conf/resources/grouper/nav.properties.orig	2012-05-30 22:26:24.017365557 +0200
++++ conf/resources/grouper/nav.properties	2012-05-31 00:02:58.916386840 +0200
+@@ -1344,13 +1344,13 @@
+ stem.icon.alt=Folder
+ group.icon.alt=Group
+ 
+-simpleMembershipUpdate.title=Grouper UI
++simpleMembershipUpdate.title=Gestion rapide des groupes
+ 
+-simpleMembershipUpdate.groups.summary.display-extension=Name
+-simpleMembershipUpdate.groups.summary.display-name=Path
++simpleMembershipUpdate.groups.summary.display-extension=Nom
++simpleMembershipUpdate.groups.summary.display-name=Adresse longue
+ simpleMembershipUpdate.groups.summary.description=Description
+-simpleMembershipUpdate.groups.summary.extension= ID
+-simpleMembershipUpdate.groups.summary.name= ID path
++simpleMembershipUpdate.groups.summary.extension=Nom court
++simpleMembershipUpdate.groups.summary.name=Adresse courte
+ simpleMembershipUpdate.field.displayName.alternateName=Alternate ID path
+ simpleMembershipUpdate.groups.summary.id=UUID
+ 
+@@ -1363,10 +1363,10 @@
+ simpleMembershipUpdate.tooltipTargetted.field.displayName.alternateName=Alternate ID Path allows groups to be searchable using an alternate name.  The format is the same as the format of ID Path.<br /><br />This is especially useful when moving a group, which will add the old ID Path of the group as the Alternate ID Path by default.  Like the ID Path, the Alternate ID Path can be used by other systems to refer to this group.
+ 
+ 
+-simpleMembershipUpdate.logout=You are logged out.  You should close all your browser windows to complete the logout.
+-simpleMembershipUpdate.screenWelcome=Welcome
+-simpleMembershipUpdate.logoutImageAlt=Log out
+-simpleMembershipUpdate.logoutText=Log out
++simpleMembershipUpdate.logout=Vous &ecirc;tes d&eacute;connect&eacute;. Veuillez fermer votre fen&ecirc;tre pour vous assurer d'&ecirc;tre d&eacute;connect&eacute;.
++simpleMembershipUpdate.screenWelcome=Bienvenue
++simpleMembershipUpdate.logoutImageAlt=Se d&eacute;connecter
++simpleMembershipUpdate.logoutText=Se d&eacute;connecter
+ 
+ simpleMembershipUpdate.topIndexTitle=Grouper 
+ infodot.title.simpleMembershipUpdate.topIndexTitle=Click on an operation below
+@@ -1375,31 +1375,31 @@
+ #infodot.subtitle.simpleMembershipUpdate.topIndexSectionHeader=Testing stuff
+ 
+ simpleMembershipUpdate.topIndexMembershipUpdate=Membership update
+-simpleMembershipUpdate.indexSectionHeader=Simple membership update - find group
++simpleMembershipUpdate.indexSectionHeader=Mettre &agrave; jour les membres d'un groupe - cherchez d'abord le groupe
+ infodot.subtitle.simpleMembershipUpdate.indexSectionHeader=Type in search text in the combobox below to find a group.  Click Select group to proceed to the membership update screen
+ 
+ simpleMembershipUpdate.updateTitle=Group membership update lite
+ infodot.title.simpleMembershipUpdate.updateTitle=This page lets you view and update the memberships of a group.<br /><br />It is meant for only simple operations.
+ 
+-simpleMembershipUpdate.find.browse.here = Current location is:
++simpleMembershipUpdate.find.browse.here =Vous &ecirc;tes actuellement sur:
+ 
+ 
+ simpleMembershipUpdate.viewInAdminUi=Admin UI
+ tooltipTargetted.simpleMembershipUpdate.viewInAdminUi=Switch to the Admin UI for a more complete set of features
+ 
+-simpleMembershipUpdate.groupSubtitle=Group
+-simpleMembershipUpdate.changeLocation=Find a group
+-simpleMembershipUpdate.addMemberSubtitle=Add member
+-simpleMembershipUpdate.addMemberButton=Add member
+-simpleMembershipUpdate.selectGroupButton=Select group
+-simpleMembershipUpdate.membershipListSubtitle=Membership list
+-simpleMembershipUpdate.pagingLabelPrefix=Showing group members:
+-simpleMembershipUpdate.noMembersFound=There are no members in this group
+-simpleMembershipUpdate.deleteConfirm =Are you sure you want to delete this membership?
+-simpleMembershipUpdate.pagingResultPrefix =Result page:
+-simpleMembershipUpdate.errorNotEnoughGroupChars=Enter 2 or more characters
+-simpleMembershipUpdate.errorNotEnoughSubjectChars=Enter 2 or more characters
+-simpleMembershipUpdate.errorNotEnoughFilterChars=Enter 3 or more characters
++simpleMembershipUpdate.groupSubtitle=G&eacute;rer les groupes
++simpleMembershipUpdate.changeLocation=Trouver un autre groupe
++simpleMembershipUpdate.addMemberSubtitle=Ajouter un membre
++simpleMembershipUpdate.addMemberButton=Ajouter un membre
++simpleMembershipUpdate.selectGroupButton=Choisir ce groupe
++simpleMembershipUpdate.membershipListSubtitle=Liste des membres
++simpleMembershipUpdate.pagingLabelPrefix=Les membres du groupes:
++simpleMembershipUpdate.noMembersFound=Pas de membres dans ce groupe
++simpleMembershipUpdate.deleteConfirm =Etes-vous s&ucirc;r de vouloir supprimer cette personne de la liste des membres de ce groupe ?
++simpleMembershipUpdate.pagingResultPrefix =Page de r&eacute;sultat:
++simpleMembershipUpdate.errorNotEnoughGroupChars=Saisir au moins 2 caract&egrave;res
++simpleMembershipUpdate.errorNotEnoughSubjectChars=Saisir au moins 2 caract&egrave;res
++simpleMembershipUpdate.errorNotEnoughFilterChars=Saisir au moins 3 caract&egrave;res
+ simpleMembershipUpdate.errorNotEnoughFilterCharsAlert=Enter 3 or more characters in the filter field
+ simpleMembershipUpdate.errorNoGroupsFound=No results found
+ simpleMembershipUpdate.errorTooManyGroups=Not all results returned, narrow your query
+@@ -1408,106 +1408,106 @@
+ simpleMembershipUpdate.errorGroupSearchCantFindGroup=Cant find group, enter search criteria in the combobox to search for a group
+ simpleMembershipUpdate.errorGroupSearchPermissions=You cannot read and update group, enter search criteria in the combobox to search for a group
+ simpleMembershipUpdate.errorGroupComposite=This is a composite group, please select a non-composite group
+-simpleMembershipUpdate.successMemberDeleted=Success: the member was deleted: {0}
++simpleMembershipUpdate.successMemberDeleted=R&eacute;ussi: cette personne n'est plus membre de ce groupe: {0}
+ simpleMembershipUpdate.errorUserSearchNothingEntered=Enter search criteria into the auto-complete box for an entity to add to the group
+ simpleMembershipUpdate.warningSubjectAlreadyMember=Entity already a member: {0}
+-simpleMembershipUpdate.successMemberAdded=Success: member added: {0}
++simpleMembershipUpdate.successMemberAdded=R&eacute;ussi: cette personne a &eacute;t&eacute; ajout&eacute;e comme membre 
+ simpleMembershipUpdate.errorSubjectNotFound=Entity not found: {0} 
+ simpleMembershipUpdate.errorSubjectNotUnique=Entity not unique: {0} 
+ simpleMembershipUpdate.errorSourceUnavailable=Source unavailable
+-simpleMembershipUpdate.errorUserSearchTooManyResults=Too many results, narrow your search
+-simpleMembershipUpdate.errorUserSearchNoResults=No results found, change your search criteria
++simpleMembershipUpdate.errorUserSearchTooManyResults=Trop de r&eacute;sultats, pr&eacute;cisez davantage votre recherche
++simpleMembershipUpdate.errorUserSearchNoResults=Aucun r&eacute;sultat, changer les crit&egrave;res de recherche
+ simpleMembershipUpdate.deleteImageAlt=Delete
+-simpleMembershipUpdate.confirmLogout=Are you sure you want to log out?
++simpleMembershipUpdate.confirmLogout=Etes-vous s&ucirc;r de vouloir vous d&eacute;connecter ?
+ simpleMembershipUpdate.errorTooManyBrowsers=The group you are editing is out of sync in the user interface.  Perhaps you have two browser tabs open editing different groups.  This group will be refreshed, please start over.
+ simpleMembershipUpdate.sortBy=Sort by:
+ 
+-simpleMembershipUpdate.advancedMenuDeleteMultiple=Delete multiple
+-simpleMembershipUpdate.advancedMenuDeleteMultipleTooltip=Selecting this option will show checkboxes next to members and a delete button at the bottom
+-simpleMembershipUpdate.advancedMenuShowGroupDetails=Show group details
+-simpleMembershipUpdate.advancedMenuShowGroupDetailsTooltip=Selecting this option will show more information about the group such as the id.
+-simpleMembershipUpdate.advancedMenuShowMemberFilter=Search for member
+-simpleMembershipUpdate.advancedMenuShowMemberFilterTooltip=Selecting this option will show a search box above the membership list where you can search for members in this group
+-simpleMembershipUpdate.advancedMenuImportExport=Import / export
+-simpleMembershipUpdate.advancedMenuImportExportTooltip=Import members from a comma separated values file (CSV) or export to a CSV file
+-simpleMembershipUpdate.advancedMenuExport=Export
+-simpleMembershipUpdate.advancedMenuExportTooltip=Export members to a comma separated values file (CSV) which can be opened in a spreadsheet program and manipulated
+-simpleMembershipUpdate.advancedMenuExportSubjectIds=Export entity IDs
+-simpleMembershipUpdate.advancedMenuExportSubjectIdsTooltip=Export entity IDs and source IDs to a comma separated values file (CSV) which can be opened in a spreadsheet program and manipulated
+-simpleMembershipUpdate.advancedMenuExportAll=Export all member data
+-simpleMembershipUpdate.advancedMenuExportAllTooltip=Export all member data (configured on server which fields), e.g. subject ID, login ID, name, etc to a comma separated values file (CSV) which can be opened in a spreadsheet program and manipulated
+-simpleMembershipUpdate.advancedMenuImport=Import
+-simpleMembershipUpdate.advancedMenuImportTooltip=Import from a comma separated values (CSV) file
++simpleMembershipUpdate.advancedMenuDeleteMultiple=Supprimer plusieurs membres en les s&eacute;lectionnant
++simpleMembershipUpdate.advancedMenuDeleteMultipleTooltip=A utiliser pour supprimer plusieurs membres en cochant la 
++simpleMembershipUpdate.advancedMenuShowGroupDetails=Voir les d&eacute;tails du groupe
++simpleMembershipUpdate.advancedMenuShowGroupDetailsTooltip=Pour obtenir plus d'informations sur le groupe tel que son identifiant
++simpleMembershipUpdate.advancedMenuShowMemberFilter=Recherchez un membre parmi les membres de ce groupe
++simpleMembershipUpdate.advancedMenuShowMemberFilterTooltip=Pour vous permettre de rechercher un membre dans un groupe quand la liste des membres d'un groupe est longue
++simpleMembershipUpdate.advancedMenuImportExport=Importer / exporter les membres de ce groupe
++simpleMembershipUpdate.advancedMenuImportExportTooltip=Importer des members depuis un fichier de valeurs (CSV) ou exporter les membres dans un fichier CSV
++simpleMembershipUpdate.advancedMenuExport=Exporter les membres de ce groupe
++simpleMembershipUpdate.advancedMenuExportTooltip=Exporter les courriels des membres vers un fichier de valeurs type CSV
++simpleMembershipUpdate.advancedMenuExportSubjectIds=Exporter uniquement les identifiants des membres de ce groupe pour l'utiliser avec un tableur par exemple
++simpleMembershipUpdate.advancedMenuExportSubjectIdsTooltip=Exporter les identifiants des membres de ce groupe vers un fichier de valeurs de type CSV pour l'utiliser avec un tableur par exemple
++simpleMembershipUpdate.advancedMenuExportAll=Exporter les courriels des membres de ce groupe
++simpleMembershipUpdate.advancedMenuExportAllTooltip=Exporter les courriels des membres de ce groupe vers un fichier de valeurs de type CSV manipulable avec un programme de type tableur
++simpleMembershipUpdate.advancedMenuImport=Importer les members de ce groupe
++simpleMembershipUpdate.advancedMenuImportTooltip=Importe les membres de ce groupe depuis un fichier d'identifiants de type CSV
+ 
+-simpleMembershipUpdate.deleteMultipleButton=Remove selected members
++simpleMembershipUpdate.deleteMultipleButton=Supprimer les membres s&eacute;lectionn&eacute;s
+ simpleMembershipUpdate.deleteMultipleTooltip=Select multiple members by checking checkboxes next to the members.  Click this button to remove them from the group.
+-simpleMembershipUpdate.deleteAllButton=Remove all members
++simpleMembershipUpdate.deleteAllButton=Supprimer tous les membres
+ simpleMembershipUpdate.deleteAllTooltip=Remove all members in the group, including members not shown on the screen if there are more than the page size.
+ simpleMembershipUpdate.errorDeleteCheckboxRequired=Error: select one or more members to remove from the group
+-simpleMembershipUpdate.successMembersDeleted=Success: {0} members were deleted
+-simpleMembershipUpdate.successAllMembersDeleted=Success: all {0} members were deleted
+-simpleMembershipUpdate.advancedButton=Advanced features
+-
+-simpleMembershipUpdate.addMemberCombohint=Enter search text to find a member to add
+-simpleMembershipUpdate.selectGroupCombohint=Enter search text to find a group
+-simpleMembershipUpdate.filterMemberCombohint=Enter search text to find a member in the list
++simpleMembershipUpdate.successMembersDeleted=Fait : {0} membres supprim&eacute;s
++simpleMembershipUpdate.successAllMembersDeleted=Fait : tous les membres de {0} ont &eacute;t&eacute;i supprim&eacutes
++simpleMembershipUpdate.advancedButton=Plus de choix...
++
++simpleMembershipUpdate.addMemberCombohint=Saisir les premiers caract&egrave;res pour trouver un membre &agrave; ajouter - Merci de patienter car la recherche dans l'annuaire peut mettre un certain temps.
++simpleMembershipUpdate.selectGroupCombohint=Saisir: un mot pour trouver un groupe
++simpleMembershipUpdate.filterMemberCombohint=Saisir les &eacute;l&eacute;ments pour trouver un membre dans la liste
+ 
+ simpleMembershipUpdate.downloadSubjectIdsLabel=Click the link to download the entityIds of the members:
+-simpleMembershipUpdate.downloadAllLabel=Click the link to download the members information:
+-simpleMembershipUpdate.importLabel=Select a comma separated values (CSV) file (e.g. from a spreadsheet program like Excel) which has a column for sourceId, and any of: entityId, entityIdentifier, entityIdOrIdentifier.<br /><br />Alternately, you can upload a text file of entityIdOrIdentifiers, each on a new line, with the first line labeled as: entityIdOrIdentifier
++simpleMembershipUpdate.downloadAllLabel=Cliquez sur le lien pour t&eacute;l&eacute;charger les courriels
++simpleMembershipUpdate.importLabel=Vous pouvez utiliser un fichier de type CSV : courriels lille1 s&eacute;par&eacute;s par des virgules, la 1&egrave;re ligne comportant le titre "entityIdOrIdentifier".<br /><br />Vous pouvez aussi utiliser un fichier texte, la 1&egrave;re ligne comportant le titre "entityIdOrIdentifier" et chaque ligne suivante comportant le courriel universitaire lille1 des personnes &agrave; importer.<br /><br />Vous pouvez &eacute;galement saisir directement les adresses ligne par ligne ou en faisant un copier/coller.
+ 
+-simpleMembershipUpdate.importSubtitle=Import members
++simpleMembershipUpdate.importSubtitle=Importer des membres
+ infodot.subtitle.simpleMembershipUpdate.importSubtitle=Upload members from a file.  You check replace existing members, or just add new members.<br /><br />The file must be a comma separated values (CSV) file, e.g. from a spreadsheet program like Microsoft Excel.  There should be a column sourceId, and a column of any of the following: entityId, entityIdentifier, entityIdOrIdentifier.  If there is no sourceId, then all sources will be found (this is less efficient), and if two sources have the same entityId, there will be an error.  Each member is on its own line.  The sourceId is one of a few entity source IDs configured in the Grouper server.<br /><br />The entityId is typically a person ID, the entityIdentifer could be a login ID, and the entityIdOrIdentifier will look by ID, and if not found, look by identifier.<br /><br />Note if you omit the sourceId column, it will be less efficient, but it will still work if you dont have two sources with the same entityId.  This does not need to be CSV, it could be a text file.  e.g. you could upload a text file of entityIdOrIdentifiers, each on a new line, with the first line labeled as: entityIdOrIdentifier<br /><br />Example CSV file 1: <br /><br /><tt>sourceId,entityId<br />someSourceId,12345<br />anotherSourceId,23456</tt><br /><br /><br />Example 2:<br /><br /><tt>sourceId,entityIdentifier<br />someSourceId,sjohnson<br />anotherSourceId,jsmith</tt><br /><br /><br />Example 3:<br /><br /><tt>sourceId,entityIdOrIdentifier<br />someSourceId,45678<br />anotherSourceId,jsmith</tt><br /><br /><br />Example 4:<br /><br /><tt>sourceId,entityId,entityIdentifier<br />someSourceId,45678<br />anotherSourceId,,jsmith</tt><br /><br /><br />Example 5:<br /><br /><tt>entityId<br />56789<br />67890</tt><br /><br /><br />Example 6:<br /><br /><tt>entityIdentifier<br />sjohnson<br />jsmith</tt><br /><br /><br />Example 7:<br /><br /><tt>entityIdOrIdentifier<br />76543<br />jsmith</tt><br /><br /><br />
+ 
+ simpleMembershipUpdate.importAvailableSourceIds=Available sourceIds:
+-simpleMembershipUpdate.importReplaceExistingMembers=Replace existing members:
+-simpleMembershipUpdate.importCommaSeparatedValuesFile=Entities file (CSV or list of id's each on new line):
+-simpleMembershipUpdate.importCancelButton=Cancel
+-simpleMembershipUpdate.importButton=Submit
+-simpleMembershipUpdate.importErrorNoWrongFile=Please submit a non-empty CSV file, the file name must end with .csv, or .txt : 
+-simpleMembershipUpdate.importErrorBlankTextarea=Please enter in the CSV or entity id list in the textarea
+-simpleMembershipUpdate.importErrorNoId=Cant find any identifer, need to pass in a entityId or entityIdentifier or entityIdOrIdentifier
+-simpleMembershipUpdate.importErrorNoIdCol=Cant find any identifer column header on first line, need to pass in entityId or entityIdentifier or entityIdOrIdentifier
+-simpleMembershipUpdate.importErrorSubjectProblems=Error: did not remove any members since there were entity problems in import file
+-simpleMembershipUpdate.importSuccessSummary=Success: import completed
+-simpleMembershipUpdate.importErrorSummary=Error: import was not successful, see {0} errors below
+-simpleMembershipUpdate.importSizeSummary=The immediate membership size was {0} and is now {1}
+-simpleMembershipUpdate.importAddsDeletesSummary=There were {0} successful adds, and {1} successful deletes
+-simpleMembershipUpdate.importSubjectErrorsLabel=Entity errors
+-simpleMembershipUpdate.importAddErrorsLabel=Errors adding members
+-simpleMembershipUpdate.importRemoveErrorsLabel=Errors deleting members
+-simpleMembershipUpdate.importDirectInput=Entities (CSV or list of id's each on new line)
+-
+-simpleMembershipUpdate.membershipLiteImportFileButton=Input members directly on screen
+-simpleMembershipUpdate.membershipLiteImportTextfieldButton=Input members from file
+-
+-simpleMembershipUpdate.memberMenuDetailsLabel=Member details
+-simpleMembershipUpdate.memberMenuDetailsTooltip=View all attributes about this member
+-simpleMembershipUpdate.memberMenuEnabledDisabled=Edit start and end dates
+-simpleMembershipUpdate.memberMenuEnabledDisabledTooltip=Edit the dates this membership will start or end
++simpleMembershipUpdate.importReplaceExistingMembers=Remplacer les membres existants:
++simpleMembershipUpdate.importCommaSeparatedValuesFile=Fichier &agrave; importer:
++simpleMembershipUpdate.importCancelButton=Annuler
++simpleMembershipUpdate.importButton=Valider
++simpleMembershipUpdate.importErrorNoWrongFile=Le fichier ne doit pas &acirc;tre vide et son nom doit se terminer par .csv ou .txt :
++simpleMembershipUpdate.importErrorBlankTextarea=Proposer un fichier d'import ou donner les courriels dans la zone de saisie
++simpleMembershipUpdate.importErrorNoId=Vous devez proposer des courriels universitaires existants.
++simpleMembershipUpdate.importErrorNoIdCol=Veuillez indiquer "entityIdOrIdentifier sur la 1&egrave;re ligne de votre fichier
++simpleMembershipUpdate.importErrorSubjectProblems=Erreur: aucun membre supprim&eacute; car il y a un probl&egrave;me avec un courriel dans votre fichier d'import
++simpleMembershipUpdate.importSuccessSummary=R&eacute;ussi: import fait
++simpleMembershipUpdate.importErrorSummary=Erreur: l'import a &eacute;chou&eacute;, veuillez consulter les {0} erreurs suivantes
++simpleMembershipUpdate.importSizeSummary=Le nombre de membres &eacute;tait de {0} et est maintenant de {1}
++simpleMembershipUpdate.importAddsDeletesSummary=Il y a eu {0} membres ajout&eacute;s et {1} membres supprm&eacute;s
++simpleMembershipUpdate.importSubjectErrorsLabel=Erreurs sur des courriels
++simpleMembershipUpdate.importAddErrorsLabel=Erreurs en ajoutant des membres
++simpleMembershipUpdate.importRemoveErrorsLabel=Erreurs en supprimant des memnbres
++simpleMembershipUpdate.importDirectInput=Courriels (un par ligne)
++
++simpleMembershipUpdate.membershipLiteImportFileButton=Saisir les courriels dans une zone de saisie
++simpleMembershipUpdate.membershipLiteImportTextfieldButton=Fournir les courriels via un fichier
++
++simpleMembershipUpdate.memberMenuDetailsLabel=Les d&eacute;tails d'un membre de groupe
++simpleMembershipUpdate.memberMenuDetailsTooltip=Voir tous les d&eacute;tails concernant ce membre
++simpleMembershipUpdate.memberMenuEnabledDisabled=Enregistrer les dates de d&eacute;but et de fin de participation &agrave; ce groupe
++simpleMembershipUpdate.memberMenuEnabledDisabledTooltip=Renseigner les dates de d&eacute;but et de fin de participation &agrave; ce groupe
+ 
+ simpleMembershipUpdate.memberMenuAlt=Member menu
+ 
+-simpleMembershipUpdate.memberDetailsSubtitle=Member details
++simpleMembershipUpdate.memberDetailsSubtitle=D&eacute;tails sur le membre
+ 
+-simpleMembershipUpdate.enabledDisableSubtitle=Edit start and end dates
+-simpleMembershipUpdate.enabledDisableGroupPath=Group path:
+-simpleMembershipUpdate.enabledDisableEntity=Entity:
+-simpleMembershipUpdate.enabledDisableEntityId=Entity id:
+-simpleMembershipUpdate.enabledDisableEntitySource=Entity source:
+-simpleMembershipUpdate.enabledDisableStartDate=Start membership on date:
+-simpleMembershipUpdate.enabledDisableEndDate=End membership on date:
+-simpleMembershipUpdate.enabledDisableOkButton=Submit
+-simpleMembershipUpdate.enabledDisableCancelButton=Cancel
++simpleMembershipUpdate.enabledDisableSubtitle=Enregistrer les dates de d&eacute;but et de fin de participation &agrave; ce groupe
++simpleMembershipUpdate.enabledDisableGroupPath=Chemin de groupe
++simpleMembershipUpdate.enabledDisableEntity=Membre:
++simpleMembershipUpdate.enabledDisableEntityId=Identifiant du membre
++simpleMembershipUpdate.enabledDisableEntitySource=Provenance de ce membre
++simpleMembershipUpdate.enabledDisableStartDate=D&eacute;but de son appartenance:
++simpleMembershipUpdate.enabledDisableEndDate=Fin de son appartenance:
++simpleMembershipUpdate.enabledDisableOkButton=Valider
++simpleMembershipUpdate.enabledDisableCancelButton=Annuler
+ simpleMembershipUpdate.enabledDisableDateMask=(yyyy/mm/dd)
+-simpleMembershipUpdate.enabledDisabledSuccess=Success: member was saved
++simpleMembershipUpdate.enabledDisabledSuccess=R&eacute:ussi: membre sauv&eacute;
+ 
+ simpleMembershipUpdate.startOver=Your session had problems, maybe it timed out.  Click <a href="grouper.html">here</a> to try again, or close your window and start the application again from the starting point.  If you have repeated problems contact the helpdesk
+ 
+-simpleMembershipUpdate.filterMemberButton=Search for member
+-simpleMembershipUpdate.filterLabel=Searching for member:
+-simpleMembershipUpdate.clearFilterButton=Clear member search
+-simpleMembershipUpdate.errorMemberFilterTooManyResults=Too many results, narrow your search
++simpleMembershipUpdate.filterMemberButton=Rechercher un membre
++simpleMembershipUpdate.filterLabel=Recherche d'un membre
++simpleMembershipUpdate.clearFilterButton=Effacer la recherche
++simpleMembershipUpdate.errorMemberFilterTooManyResults=Trop de r&eacute;sultats, pr&eacute;cisez votre recherche
+ 
+ simpleMembershipUpdate.disabledPrefix=until
+ 
