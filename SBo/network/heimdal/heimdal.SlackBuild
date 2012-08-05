@@ -57,12 +57,6 @@ find . \
   \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 \
   -o -perm 400 \) -exec chmod 644 {} \;
 
-# Note about OpenLDAP:
-# The openldap-client package is part of Slackware since the 11.0 release.
-# If you want to store your KDC database in LDAP, you will need to configure
-# Heimdal with support for OpenLDAP:
-# Replace this:  "--without-openldap"  with this:  "--with-openldap=/usr"
-# in the configure lines below
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
@@ -76,7 +70,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --build=$ARCH-slackware-linux \
   --enable-shared=yes \
   --disable-otp \
-  --without-openldap \
+  --with-openldap=/usr \
   --without-hesiod \
   --without-ipv6 \
   --enable-kcm \
