@@ -1,10 +1,10 @@
 #!/bin/sh
 
-# Slackware build script for grouper.psp
+# Slackware build script for grouper.ui
 # Written by Thibaut Notteboom (tib@tibux.org)
 
 PRGNAM=grouper.ui
-VERSION=${VERSION:-2.1.0}
+VERSION=${VERSION:-2.1.1}
 ARCH="noarch"
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -42,6 +42,9 @@ find . \
  -exec chmod 755 {} \; -o \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
+
+# Patch to enable french ui
+patch -p0 < $CWD/nav.properties.patch
 
 sed \
   -e "s;../grouper;/usr/share/grouper;g" \
