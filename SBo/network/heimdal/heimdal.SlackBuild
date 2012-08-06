@@ -70,6 +70,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --build=$ARCH-slackware-linux \
   --enable-shared=yes \
   --disable-otp \
+  --disable-sqlite-cache \
   --with-openldap=/usr \
   --without-hesiod \
   --without-ipv6 \
