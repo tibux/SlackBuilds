@@ -1,8 +1,8 @@
 PRGNAM="grouper"
-VERSION="2.2.1"
+VERSION="2.1.2"
 HOMEPAGE="http://www.internet2.edu/grouper/"
-DOWNLOAD="http://www.internet2.edu/grouper/release/2.1.1/grouper.api-2.1.1.tar.gz
-MD5SUM="0d039ef3dcafa4f13c07b785cbbba0e9"
+DOWNLOAD="http://www.internet2.edu/grouper/release/2.1.2/grouper.api-2.1.2.tar.gz
+MD5SUM="e297fc195e83eafd82a1594e4391ce38"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
 MAINTAINER="Thibaut Notteboom"
