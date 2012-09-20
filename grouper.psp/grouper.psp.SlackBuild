@@ -4,7 +4,7 @@
 # Written by Thibaut Notteboom (tib@tibux.org)
 
 PRGNAM=grouper.psp
-VERSION=${VERSION:-2.1.0}
+VERSION=${VERSION:-2.1.2}
 ARCH="noarch"
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
