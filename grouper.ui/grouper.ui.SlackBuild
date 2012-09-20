@@ -4,7 +4,7 @@
 # Written by Thibaut Notteboom (tib@tibux.org)
 
 PRGNAM=grouper.ui
-VERSION=${VERSION:-2.1.1}
+VERSION=${VERSION:-2.1.2}
 ARCH="noarch"
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -60,6 +60,7 @@ chown -R tomcat:tomcat $PKG/$TOMCAT_HOME
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION/
 cp -a README.txt $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+#cat $CWD/README.SLACKWARE > $PKG/usr/doc/$PRGNAM-$VERSION/README.SLACKWARE
 cat $CWD/struts-config.xml.patch > $PKG/usr/doc/$PRGNAM-$VERSION/struts-config.xml.patch
 cat $CWD/web.xml.patch > $PKG/usr/doc/$PRGNAM-$VERSION/web.xml.patch
 cat $CWD/nav.properties.patch > $PKG/usr/doc/$PRGNAM-$VERSION/nav.properties.patch
