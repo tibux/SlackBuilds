@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Slackware build script for Thibaut Notteboom
+# Slackware build script for log4shib
 # Written by Thibaut Notteboom (tib@tibux.org)
 
 PRGNAM=log4shib
