@@ -57,7 +57,6 @@ CXXFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
-  --disable-doxygen-doc \
   --build=$ARCH-slackware-linux
 
 make
