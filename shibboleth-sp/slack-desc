@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+             |-----handy-ruler------------------------------------------------------|
+shibboleth-sp: shibboleth-sp
+shibboleth-sp:
+shibboleth-sp: The Shibboleth Service Provider SSO-enables and Federation-enables web
+shibboleth-sp: applications written with any programming language or framework. It
+shibboleth-sp: integrates natively with popular web servers like Apache and IIS.
+shibboleth-sp:
+shibboleth-sp: A loosely coupled integration strategy allows you to support SAML,
+shibboleth-sp: rich attribute-exchange, and many value-added features, often without
+shibboleth-sp: significantly changing your application code or using proprietary
+shibboleth-sp: interfaces.
+shibboleth-sp: 

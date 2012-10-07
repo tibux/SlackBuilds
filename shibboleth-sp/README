@@ -1,0 +1,10 @@
+The Shibboleth Service Provider SSO-enables and Federation-enables web
+applications written with any programming language or framework. It
+integrates natively with popular web servers like Apache and IIS.
+
+A loosely coupled integration strategy allows you to support SAML,
+rich attribute-exchange, and many value-added features, often without
+significantly changing your application code or using proprietary
+interfaces.
+
+This requires xerces-c, log4shib, xml-security-c, xmltooling, opensaml.
