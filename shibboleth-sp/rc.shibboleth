@@ -1,10 +1,8 @@
 #!/bin/sh
 
 shibd_start() {
-  if [ -r /var/shibd/kdc.conf ]; then
-    echo "Starting the shibd service:  /usr/sbin/shibd"
-    /usr/sbin/shibd -f
-  fi
+  echo "Starting the shibd service:  /usr/sbin/shibd"
+  /usr/sbin/shibd -f
 }
 
 shibd_stop() {
