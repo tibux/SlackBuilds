@@ -8,3 +8,6 @@ significantly changing your application code or using proprietary
 interfaces.
 
 This requires xerces-c, log4shib, xml-security-c, xmltooling, opensaml.
+
+You will need to add the following line to /etc/httpd/httpd.conf:
+  Include /etc/httpd/extra/mod_shib.conf
