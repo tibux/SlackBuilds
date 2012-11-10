@@ -1,0 +1,7 @@
+glances (CLI curses based monitoring tool)
+
+Glances is a CLI curses based monitoring tool for GNU/Linux and BSD
+OS. It uses the PsUtil library to get information from your system.
+It is developed in Python. 
+
+This requires pysetuptools, psutil.
