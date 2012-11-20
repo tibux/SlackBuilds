@@ -1,6 +1,6 @@
 PRGNAM="Pyro4"
 VERSION="4.16"
-HOMEPAGE="http://irmen.home.xs4all.nl/pyro/"
+HOMEPAGE="http://packages.python.org/Pyro4/"
 DOWNLOAD="http://pypi.python.org/packages/source/P/Pyro4/Pyro4-4.16.tar.gz"
 MD5SUM="8c7d2ee1a221704809f4d7a7212418d4"
 DOWNLOAD_x86_64=""
