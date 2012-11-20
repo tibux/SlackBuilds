@@ -1,5 +1,5 @@
 PRGNAM="facter"
-VERSION="1.6.12"
+VERSION="1.6.14"
 HOMEPAGE="http://www.puppetlabs.com/puppet/related-projects/facter/"
 DOWNLOAD="http://puppetlabs.com/downloads/facter/facter-1.6.14.tar.gz"
 MD5SUM="b6c3df8ad1781c10d30785c58a4504ef"

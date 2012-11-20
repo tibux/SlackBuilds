@@ -1,5 +1,5 @@
 PRGNAM="shinken"
-VERSION="1.2"
+VERSION="1.2.2"
 HOMEPAGE="http://shinken-monitoring.org/"
 DOWNLOAD="http://shinken-monitoring.org/pub/shinken-1.2.2.tar.gz"
 MD5SUM="1e46f5886660ff6f3a9571bee6bc53e8"
