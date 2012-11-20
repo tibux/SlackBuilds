@@ -1,0 +1,125 @@
+#!/bin/sh
+
+# Slackware build script for Shinken
+# Written by Thibaut Notteboom (tib@tibux.org)
+
+PRGNAM=shinken
+VERSION=${VERSION:-1.2.2}
+BUILD=${BUILD:-1}
+TAG=${TAG:-_SBo}
+
+if [ -z "$ARCH" ]; then
+  case "$( uname -m )" in
+    i?86) ARCH=i486 ;;
+    arm*) ARCH=arm ;;
+       *) ARCH=$( uname -m ) ;;
+  esac
+fi
+
+CWD=$(pwd)
+TMP=${TMP:-/tmp/SBo}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+
+if [ "$ARCH" = "i486" ]; then
+  SLKCFLAGS="-O2 -march=i486 -mtune=i686"
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "i686" ]; then
+  SLKCFLAGS="-O2 -march=i686 -mtune=i686"
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2 -fPIC"
+  LIBDIRSUFFIX="64"
+else
+  SLKCFLAGS="-O2"
+  LIBDIRSUFFIX=""
+fi
+
+set -e 
+
+# Check if the 'shinken' user & group exist:
+if [ "$(grep ^shinken /etc/passwd)" = "" -o "$(grep ^shinken /etc/group)" = "" ] ; then
+  printf "\nYou must have a shinken user and group.\n\nExample:\n"
+  printf "\t# groupadd -g 259 shinken\n"
+  printf "\t# useradd -d /var/lib/shinken -s /bin/false -u 259 -g shinken shinken\n\n"
+  exit 1
+fi
+
+rm -rf $PKG
+mkdir -p $TMP $PKG $OUTPUT
+cd $TMP
+rm -rf $PRGNAM-$VERSION
+tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
+cd $PRGNAM-$VERSION
+chown -R root:root .
+find . \
+ \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
+ -exec chmod 755 {} \; -o \
+ \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
+ -exec chmod 644 {} \;
+
+python setup.py install \
+  --root=$PKG \
+  --prefix=/usr \
+  --etc-path=/etc/shinken \
+  --var-path=/var/lib/shinken \
+  --run-path=/var/run/shinken \
+  --log-path=/var/log/shinken \
+  --plugins-path=/usr/libexec/shinken \
+  --owner=shinken \
+  --group=shinken
+
+mkdir -p $PKG/etc/logrotate.d
+sed -e "s,@USER@,shinken," -e "s,@GROUP@,shinken," \
+  $CWD/$PRGNAM.logrotate > $PKG/etc/logrotate.d/shinken.new
+
+mkdir -p $PKG/usr/libexec/shinken
+install -m 0550 -g shinken libexec/*{.py,.pl,.sh} $PKG/usr/libexec/shinken/
+
+# Fix path in configuration files
+find $PKG/etc/shinken/ -type f -exec sed -i "s|$PKG||g" {} \;
+sed -i "s|$PKG||g" $PKG/etc/default/shinken
+sed -i 's|/usr/lib/nagios/plugins|/usr/libexec/shinken|g' $PKG/etc/shinken/resource.cfg
+
+# Remove useless stuff
+find $PKG/etc/shinken/ -type f -name "*-windows.*" -exec rm -f '{}' \;
+
+# Change configuration files to .new
+find $PKG/etc/shinken/ -type f | while read cfg ; do mv $cfg $cfg.new ; done
+
+# Replace, remame and fix init scripts
+mv $PKG/etc/init.d $PKG/etc/rc.d
+mv $PKG/etc/rc.d/$PRGNAM $PKG/etc/rc.d/rc.$PRGNAM
+sed -i 's|log_end_msg [01]|echo |g' "$PKG/etc/rc.d/rc.shinken"
+sed -i 's|log_failure_msg|echo |g' "$PKG/etc/rc.d/rc.shinken"
+sed -i 's|log_warning_msg|echo |g' "$PKG/etc/rc.d/rc.shinken"
+
+for module in arbiter poller scheduler receiver broker reactionner skonf;do
+  mv $PKG/etc/rc.d/shinken-$module $PKG/etc/rc.d/rc.shinken-$module
+  sed -i "s|/shinken|/rc.shinken|g" $PKG/etc/rc.d/rc.shinken-$module
+done
+
+# Fixup some ownership issues
+chown shinken:shinken $PKG/var/lib/shinken $PKG/var/log/shinken $PKG/var/run/shinken
+
+# Man pages
+mkdir -p $PKG/usr/man/man8
+
+for p in admin arbiter broker discovery poller reactionner receiver scheduler;do
+  install -m 644 doc/man/shinken-$p.8shinken $PKG/usr/man/man8/shinken-$p.8
+done
+
+find $PKG/usr/man -type f -exec gzip -9 {} \;
+for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
+
+# Install the documentation
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a COPYING Changelog FOR_PACKAGERS FROM_NAGIOS_TO_SHINKEN README.rst THANKS doc/images $PKG/usr/doc/$PRGNAM-$VERSION
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+
+cd $PKG
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}

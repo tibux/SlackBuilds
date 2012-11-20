@@ -1,0 +1,19 @@
+README.SLACKWARE
+================
+
+Shinken requires a "shinken" user and group; create these before running the
+SlackBuild script. Examples:
+
+# groupadd -g 259 shinken
+# useradd -u 259 -d /dev/null -s /bin/false -g shinken shinken
+
+If you want to use nagios-plugins without problems, you need to add the
+'shinken' user to the 'nagios' group
+
+# usermod -G nagios shinken
+
+To run shinken at boot, add the following to /etc/rc.d/rc.local :
+
+if [ -x /etc/rc.d/rc.shinken ]; then
+  /etc/rc.d/rc.shinken start
+fi

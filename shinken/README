@@ -1,0 +1,11 @@
+Shinken is an open source Nagios like tool.
+
+Shinken is redesigned and rewritten from scratch. Its main goal is to
+meet today’s system monitoring requirements while still following
+compatibility to Nagios.
+
+Shinken is able to use Nagios’s plugins.
+
+This requires : pysetuptools, Pyro4, MySQL-python
+
+Optional : nagios-plugins
