@@ -5,4 +5,4 @@ By automatically rebuilding and testing the tree each time
 something has changed, build problems are pinpointed quickly,
 before other developers are inconvenienced by the failure.
 
-This requires python-twisted, jinja2.
+This requires python-twisted, jinja2, SQLAlchemy, simplejson.
