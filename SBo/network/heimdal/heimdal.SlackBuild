@@ -42,7 +42,7 @@ else
   LIBDIRSUFFIX=""
 fi
 
-set -e # Exit immediately if a command exits with a non-zero status.
+set -e
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
@@ -68,16 +68,18 @@ CXXFLAGS="$SLKCFLAGS" \
   --mandir=/usr/heimdal/man \
   --docdir=/usr/doc/$PRGNAM-$VERSION \
   --build=$ARCH-slackware-linux \
-  --enable-shared=yes \
-  --disable-otp \
-  --disable-sqlite-cache \
   --with-openldap=/usr \
+  --with-sqlite3=/usr \
+  --enable-pthread-support \
+  --disable-static \
+  --disable-otp \
   --without-hesiod \
   --without-ipv6 \
   --enable-kcm \
   --with-x
 
 make
+make check
 make install-strip DESTDIR=$PKG
 
 rm -rf $PKG/usr/heimdal/man/cat?   # We don't want these
