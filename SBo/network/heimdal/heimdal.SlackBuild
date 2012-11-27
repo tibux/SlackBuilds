@@ -84,7 +84,7 @@ make
 make check
 make install-strip DESTDIR=$PKG
 
-rm -rf $PKG/usr/heimdal/man/cat?   # We don't want these
+rm -rf $PKG/usr/heimdal/man/cat?
 find $PKG/usr/heimdal/man -type f -exec gzip -9 {} \;
 for i in $( find $PKG/usr/heimdal/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 
@@ -97,16 +97,13 @@ cp -a [A-Z][A-Z]* ChangeLog* etc/services.append $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a doc/{init-creds,layman.asc,mdate-sh} $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/inittab-heimdal.patch > $PKG/usr/doc/$PRGNAM-$VERSION/inittab-heimdal.patch
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
-find $PKG/usr/doc -type f -exec chmod -x {} \;
 
 # Add sample krb5.conf file (may not be needed)
 mkdir -p $PKG/etc
 cat krb5.conf > $PKG/etc/krb5.conf-sample.new
 
-# Create directory for the KDC to use
+# Create directory for the KDC to use and add sample kdc.conf file
 mkdir -p $PKG/var/heimdal
-
-# Add sample kdc.conf file (may not be needed)
 cat $CWD/config/kdc.conf > $PKG/var/heimdal/kdc.conf-sample.new
 
 # Include a KDC rc-file for the admin to consider
@@ -115,9 +112,8 @@ cat $CWD/config/rc.heimdal > $PKG/etc/rc.d/rc.heimdal.new
 
 # Add heimdal to INFOPATH, MANPATH, and PATH
 mkdir -p $PKG/etc/profile.d
-cat $CWD/config/heimdal.sh > $PKG/etc/profile.d/heimdal.sh.new
-cat $CWD/config/heimdal.csh > $PKG/etc/profile.d/heimdal.csh.new
-chmod 0755 $PKG/etc/profile.d/*
+install -m 0755 $CWD/config/heimdal.sh $PKG/etc/profile.d/heimdal.sh.new
+install -m 0755 $CWD/config/heimdal.csh $PKG/etc/profile.d/heimdal.csh.new
 
 mkdir $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
