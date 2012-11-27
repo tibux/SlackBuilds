@@ -68,15 +68,17 @@ CXXFLAGS="$SLKCFLAGS" \
   --mandir=/usr/heimdal/man \
   --docdir=/usr/doc/$PRGNAM-$VERSION \
   --build=$ARCH-slackware-linux \
+  --with-berkeley-db-include=/usr/include/db48 \
   --with-openldap=/usr \
+  --with-readline=/usr \
   --with-sqlite3=/usr \
-  --enable-pthread-support \
-  --disable-static \
-  --disable-otp \
-  --without-hesiod \
+  --with-x \
   --without-ipv6 \
+  --without-hesiod \
   --enable-kcm \
-  --with-x
+  --enable-pthread-support \
+  --disable-otp \
+  --disable-static
 
 make
 make check
