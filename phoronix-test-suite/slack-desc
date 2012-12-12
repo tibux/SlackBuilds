@@ -6,11 +6,11 @@
 # customary to leave one space after the ':' except on otherwise blank lines.
 
                    |-----handy-ruler------------------------------------------------------|
-phoronix-test-suite: phoronix-test-suite
+phoronix-test-suite: phoronix-test-suite (testing and benchmarking platform).
 phoronix-test-suite:
-phoronix-test-suite:
-phoronix-test-suite:
-phoronix-test-suite:
+phoronix-test-suite: The Phoronix Test Suite is the most comprehensive testing and
+phoronix-test-suite: benchmarking platform available that provides an extensible framework
+phoronix-test-suite: for which new tests can be easily added.
 phoronix-test-suite:
 phoronix-test-suite:
 phoronix-test-suite:
