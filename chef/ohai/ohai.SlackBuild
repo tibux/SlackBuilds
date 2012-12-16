@@ -23,7 +23,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=rubygem-ohai
-VERSION=${VERSION:-1.4.1}
+VERSION=${VERSION:-6.14.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -103,18 +103,23 @@ gem install \
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
-# Remove cached gem from install, if you are so inspired ..
-#rm -rf $PKG/$DESTDIR/cache
+# Remove cached gem from install
+rm -rf $PKG/$DESTDIR/cache
+
+mkdir -p $PKG/usr/man/man1
+tar -x -O --file=$CWD/$SRCNAM-$VERSION.gem data.tar.gz | tar -xz -C $PKG/usr/man/man1 --file=- \
+  docs/man/man1/ohai.1
+
+find $PKG/usr/man -type f -exec gzip -9 {} \;
+for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 tar -x -O --file=$CWD/$SRCNAM-$VERSION.gem data.tar.gz | tar -xz -C $PKG/usr/doc/$PRGNAM-$VERSION --file=- \
-  <documentation> \
-  $PKG/usr/doc/$PRGNAM-$VERSION
+  LICENSE README.rdoc
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-#cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
