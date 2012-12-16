@@ -82,8 +82,10 @@ make install \
  SBIN_DIR=$PKG/usr/bin \
  MAN_DIR=$PKG/usr/man
 
-mkdir -p $PKG/etc/rabbitmq $PKG/var/lib/rabbitmq $PKG/var/log/rabbitmq
-chown -R rabbitmq.rabbitmq $PKG/etc/rabbitmq $PKG/var/lib/rabbitmq $PKG/var/log/rabbitmq
+rm -rf $PKG/usr/lib$LIBDIRSUFFIX/$PRGNAM/plugins
+
+mkdir -p $PKG/{etc,lib,log}/rabbitmq
+chown -R rabbitmq.rabbitmq $PKG/{etc,lib,log}/rabbitmq
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
