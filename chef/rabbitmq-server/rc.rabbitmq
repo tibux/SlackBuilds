@@ -1,0 +1,20 @@
+#!/bin/bash
+
+. /etc/rabbitmq/rabbitmq.conf
+
+case "$1" in
+  start)
+    /usr/sbin/rabbitmq-server -detached
+    ;;
+  stop)
+    /usr/sbin/rabbitmqctl stop
+    ;;
+  restart)
+    $0 stop
+    sleep 3
+    $0 start
+    ;;
+  *)
+    echo "usage: $0 {start|stop|restart}"
+esac
+
