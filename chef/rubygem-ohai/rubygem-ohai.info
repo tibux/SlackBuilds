@@ -1,4 +1,4 @@
-PRGNAM="ohai"
+PRGNAM="rubygem-ohai"
 VERSION="6.14.0"
 HOMEPAGE="http://wiki.opscode.com/display/chef/Ohai/"
 DOWNLOAD="http://rubygems.org/downloads/ohai-6.14.0.gem"

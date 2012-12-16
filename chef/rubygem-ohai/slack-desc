@@ -5,15 +5,15 @@
 # You must make exactly 11 lines for the formatting to be correct.  It's also
 # customary to leave one space after the ':' except on otherwise blank lines.
 
-    |-----handy-ruler------------------------------------------------------|
-ohai: ohai
-ohai:
-ohai: Ohai detects data about your operating system. It can be used
-ohai: standalone, but its primary purpose is to provide node data to Chef. 
-ohai:
-ohai:
-ohai:
-ohai:
-ohai:
-ohai:
-ohai:
+            |-----handy-ruler------------------------------------------------------|
+rubygem-ohai: rubygem-ohai (ohai)
+rubygem-ohai:
+rubygem-ohai: Ohai detects data about your operating system. It can be used
+rubygem-ohai: standalone, but its primary purpose is to provide node data to Chef. 
+rubygem-ohai:
+rubygem-ohai:
+rubygem-ohai:
+rubygem-ohai:
+rubygem-ohai:
+rubygem-ohai:
+rubygem-ohai:

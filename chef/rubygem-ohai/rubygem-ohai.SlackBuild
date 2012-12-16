@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Slackware build script for ohai
+# Slackware build script for rubygem-ohai
 
 # Copyright 2013 Thibaut Notteboom, Paris, FRANCE
 # All rights reserved.
