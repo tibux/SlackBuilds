@@ -102,8 +102,10 @@ cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 mkdir -p $PKG/etc
 cat krb5.conf > $PKG/etc/krb5.conf-sample.new
 
-# Create directory for the KDC to use and add sample kdc.conf file
+# Create directory for the KDC to use
 mkdir -p $PKG/var/heimdal
+
+# Add sample kdc.conf file (may not be needed)
 cat $CWD/config/kdc.conf > $PKG/var/heimdal/kdc.conf-sample.new
 
 # Include a KDC rc-file for the admin to consider
