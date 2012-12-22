@@ -23,4 +23,4 @@ preserve_perms() {
 }
 
 preserve_perms etc/rc.d/rc.rabbitmq.new
-config etc/rabbitmq/rabbitmq.conf.new
+config etc/rabbitmq/rabbitmq-env.conf.new

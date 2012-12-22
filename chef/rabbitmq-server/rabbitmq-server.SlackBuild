@@ -86,7 +86,7 @@ mkdir -p $PKG/etc/rc.d
 cat $CWD/rc.rabbitmq > $PKG/etc/rc.d/rc.rabbitmq.new
 
 mkdir -p $PKG/etc/rabbitmq
-cat  $CWD/rabbitmq.conf > $PKG/etc/rabbitmq/rabbitmq.conf.new
+cat  $CWD/rabbitmq-env.conf > $PKG/etc/rabbitmq/rabbitmq-env.conf.new
 
 rm -rf $PKG/usr/lib$LIBDIRSUFFIX/$PRGNAM/plugins
 
