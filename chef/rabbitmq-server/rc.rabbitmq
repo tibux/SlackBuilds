@@ -4,10 +4,10 @@
 
 case "$1" in
   start)
-    /usr/sbin/rabbitmq-server -detached
+    /usr/bin/rabbitmq-server -detached
     ;;
   stop)
-    /usr/sbin/rabbitmqctl stop
+    /usr/bin/rabbitmqctl stop
     ;;
   restart)
     $0 stop
