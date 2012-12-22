@@ -83,8 +83,7 @@ make install \
  MAN_DIR=$PKG/usr/man
 
 mkdir -p $PKG/etc/rc.d
-cat  $CWD/rc.rabbitmq > \
-  $PKG/etc/rc.d/rabbitmq.new
+cat $CWD/rc.rabbitmq > $PKG/etc/rc.d/rabbitmq.new
 
 mkdir -p $PKG/etc/rabbitmq
 cat  $CWD/rabbitmq.conf > $PKG/etc/rabbitmq/rabbitmq.conf.new
