@@ -5,6 +5,6 @@ DOWNLOAD="http://shibboleth.net/downloads/c++-opensaml/2.5.0/opensaml-2.5.0.tar.
 MD5SUM="a887f99838bb7c6928b6d29042a5528b"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
+REQUIRES="xmltooling"
 MAINTAINER="Thibaut Notteboom"
 EMAIL="tib@tibux.org"
-APPROVED=""
