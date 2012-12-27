@@ -51,6 +51,9 @@ rpm2tgz -ivh $PRGNAM-*.$ARCH.rpm
 
 cd $PKG
 /sbin/explodepkg $TMP/$PRGNAM-$VERSION/*.tgz
+mkdir -p usr/sbin
+ln -sf opt/MegaRAID/MegaCli/MegaCli usr/sbin/MegaCli
+ln -sf opt/MegaRAID/MegaCli/MegaCli64 usr/sbin/MegaCli64
 cd -
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
