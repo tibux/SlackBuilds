@@ -46,8 +46,8 @@ cd $PRGNAM-$VERSION
 unzip CLI_Lin_$VERSION.zip
 unzip ${PRGNAM}Lin.zip
 
-rpm2tgz -ivh Lib_Utils-*.$ARCH.rpm
-rpm2tgz -ivh $PRGNAM-*.$ARCH.rpm
+rpm2tgz Lib_Utils-*.$ARCH.rpm
+rpm2tgz $PRGNAM-*.$ARCH.rpm
 
 cd $PKG
 /sbin/explodepkg $TMP/$PRGNAM-$VERSION/*.tgz
