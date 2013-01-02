@@ -54,6 +54,8 @@ else
   LIBDIRSUFFIX=""
 fi
 
+if [ -x /usr/bin/Xalan ]; then XALAN=""; else XALAN="out"; fi
+
 set -e
 
 rm -rf $PKG
@@ -73,8 +75,9 @@ CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
-  --libdir=/usr/lib${LIBDIRSUFFIX} \
+  --libdir=/usr/lib$LIBDIRSUFFIX \
   --disable-static \
+  --with$XALAN-xalan \
   --build=$ARCH-slackware-linux
 
 make

@@ -8,12 +8,12 @@
               |-----handy-ruler------------------------------------------------------|
 xml-security-c: xml-security-c (Apache XML security C++ library)
 xml-security-c:
-xml-security-c:
 xml-security-c: The xml-security-c library is a C++ implementation of the XML Digital
 xml-security-c: Signature and Encryption specifications. The library makes use of the
 xml-security-c: Apache XML project's Xerces-C XML Parser and Xalan-C XSLT processor.
 xml-security-c: The latter is used for processingXPath and XSLT transforms.
 xml-security-c: 
+xml-security-c: homepage: http://santuario.apache.org/cindex.html
 xml-security-c: 
 xml-security-c: 
 xml-security-c: 
