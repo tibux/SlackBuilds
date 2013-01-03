@@ -54,6 +54,8 @@ else
   LIBDIRSUFFIX=""
 fi
 
+if [ "${DOEXAMPLES:-no}" = "yes" ]; then EXAMPLES="en"; else EXAMPLES="dis"; fi
+
 set -e
 
 rm -rf $PKG
@@ -69,6 +71,11 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
+# Use our CFLAGS
+sed -i -e "s|-O3|$SLKCFLAGS|" -e "s|-O2|$SLKCFLAGS|" configure
+
+# We need to specify --disable-examples or lot of binaries with
+# names conflicting with other packages go in /usr/bin  --ponce
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
@@ -78,18 +85,25 @@ CXXFLAGS="$SLKCFLAGS" \
   --localstatedir=/var \
   --mandir=/usr/man \
   --docdir=/usr/doc/$PRGNAM-$VERSION \
+  --${EXAMPLES}able-examples \
   --build=$ARCH-slackware-linux
 
 make
 make install DESTDIR=$PKG
+[ "${DODOCS:-no}" = "yes" ] && make installdoc DESTDIR=$PKG
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
-mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a \
-  LICENSE \
-  $PKG/usr/doc/$PRGNAM-$VERSION
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION/examples
+if [ "$DODOCS" = "yes" ]; then
+  mv $PKG/usr/share/doc/$PRGNAM/html $PKG/usr/doc/$PRGNAM-$VERSION/
+  chmod 0644 $PKG/usr/doc/$PRGNAM-$VERSION/html/*
+  rm -fr $PKG/usr/share/doc
+fi
+cp -a LICENSE $PKG/usr/doc/$PRGNAM-$VERSION
+cp examples/*.cpp $PKG/usr/doc/$PRGNAM-$VERSION/examples
+chmod 0644 $PKG/usr/doc/$PRGNAM-$VERSION/examples/*
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
