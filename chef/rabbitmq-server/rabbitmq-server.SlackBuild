@@ -90,7 +90,7 @@ cat  $CWD/rabbitmq-env.conf > $PKG/etc/rabbitmq/rabbitmq-env.conf.new
 
 rm -rf $PKG/usr/lib$LIBDIRSUFFIX/$PRGNAM/plugins
 
-install -d -u rabbitmq -g rabbitmq $PKG/var/{lib,log}/rabbitmq
+install -d -o rabbitmq -g rabbitmq $PKG/var/{lib,log}/rabbitmq
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
