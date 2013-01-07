@@ -56,6 +56,13 @@ fi
 
 set -e
 
+if [ "$(grep ^shibd /etc/passwd)" = "" -o "$(grep ^shibd /etc/group)" = "" ] ; then
+  printf "\nYou must have a shibd user and group.\n\nExample:\n"
+  printf "\t# groupadd -g 268 shibd\n"
+  printf "\t# useradd -d /var/lib/rabbitmq -s /bin/false -u 268 -g shibd shibd\n\n"
+  exit 1
+fi
+
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
@@ -85,7 +92,7 @@ mkdir -p $PKG/etc/httpd/extra
 sed "s%@baselibdir@%lib${LIBDIRSUFFIX}%" $CWD/mod_shib.conf > \
   $PKG/etc/httpd/extra/mod_shib.conf.new
 
-chown apache. $PKG/var/cache/shibboleth $PKG/var/log/shibboleth/ $PKG/var/run/shibboleth
+chown shibd:shibd $PKG/var/cache/shibboleth $PKG/var/log/shibboleth/ $PKG/var/run/shibboleth
 
 mkdir -p $PKG/etc/rc.d
 cat $CWD/rc.shibboleth > $PKG/etc/rc.d/rc.shibboleth.new

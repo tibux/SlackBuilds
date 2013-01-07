@@ -2,7 +2,7 @@
 
 shibd_start() {
   echo "Starting the shibd service:  /usr/sbin/shibd"
-  /usr/sbin/shibd -f -u apache -g apache
+  /usr/sbin/shibd -f -u shibd -g shibd
 }
 
 shibd_stop() {
