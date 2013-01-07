@@ -6,14 +6,14 @@
 # customary to leave one space after the ':' except on otherwise blank lines.
 
              |-----handy-ruler------------------------------------------------------|
-shibboleth-sp: shibboleth-sp
+shibboleth-sp: shibboleth-sp (Shibboleth Service Provider)
 shibboleth-sp:
-shibboleth-sp: The Shibboleth Service Provider SSO-enables and Federation-enables web
-shibboleth-sp: applications written with any programming language or framework. It
-shibboleth-sp: integrates natively with popular web servers like Apache and IIS.
+shibboleth-sp: Shibboleth is a Web Single Sign-On implementations based on OpenSAML
+shibboleth-sp: that supports multiple protocols, federated identity, and the extensible
+shibboleth-sp: exchange of rich attributes subject to privacy controls.
 shibboleth-sp:
-shibboleth-sp: A loosely coupled integration strategy allows you to support SAML,
-shibboleth-sp: rich attribute-exchange, and many value-added features, often without
-shibboleth-sp: significantly changing your application code or using proprietary
-shibboleth-sp: interfaces.
+shibboleth-sp: This package contains the Shibboleth Service Provider runtime libraries,
+shibboleth-sp: daemon, default plugins, and Apache module.
+shibboleth-sp:
+shibboleth-sp:
 shibboleth-sp:
