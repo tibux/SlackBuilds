@@ -85,6 +85,8 @@ mkdir -p $PKG/etc/httpd/extra
 sed "s%@baselibdir@%lib${LIBDIRSUFFIX}%" $CWD/mod_shib.conf > \
   $PKG/etc/httpd/extra/mod_shib.conf.new
 
+chown apache. $PKG/var/cache/shibboleth $PKG/var/log/shibboleth/ $PKG/var/run/shibboleth
+
 mkdir -p $PKG/etc/rc.d
 cat $CWD/rc.shibboleth > $PKG/etc/rc.d/rc.shibboleth.new
 
