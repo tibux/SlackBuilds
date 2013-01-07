@@ -59,7 +59,7 @@ set -e
 if [ "$(grep ^rabbitmq /etc/passwd)" = "" -o "$(grep ^rabbitmq /etc/group)" = "" ] ; then
   printf "\nYou must have a rabbitmq user and group.\n\nExample:\n"
   printf "\t# groupadd -g 264 rabbitmq\n"
-  printf "\t# useradd -d /dev/null -s /bin/false -u 264 -g rabbitmq rabbitmq\n\n"
+  printf "\t# useradd -d /var/lib/rabbitmq -s /bin/sh -u 264 -g rabbitmq rabbitmq\n\n"
   exit 1
 fi
 
