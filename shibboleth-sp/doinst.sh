@@ -24,3 +24,6 @@ preserve_perms() {
 
 preserve_perms etc/rc.d/rc.shibboleth.new
 config etc/httpd/extra/mod_shib.conf.new
+find etc/shibboleth/ -name *.xml.new | while read cfg ; do config $cfg ; done
+find etc/shibboleth/ -name *.html.new | while read cfg ; do config $cfg ; done
+find etc/shibboleth/ -name *.pem.new | while read cfg ; do config $cfg ; done
