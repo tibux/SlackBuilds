@@ -102,6 +102,7 @@ rm -f $PKG/etc/shibboleth/shibd-* $PKG/etc/shibboleth/*.dist
 
 # Change configuration files to .new
 find $PKG/etc/shibboleth/ -name *.html | while read cfg ; do mv $cfg $cfg.new ; done
+find $PKG/etc/shibboleth/ -name *.logger | while read cfg ; do mv $cfg $cfg.new ; done
 find $PKG/etc/shibboleth/ -name *.xml | while read cfg ; do mv $cfg $cfg.new ; done
 
 # Key generation
