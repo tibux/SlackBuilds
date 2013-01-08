@@ -98,7 +98,7 @@ mkdir -p $PKG/etc/rc.d
 cat $CWD/rc.shibboleth > $PKG/etc/rc.d/rc.shibboleth.new
 
 # Remove useless stuffs
-rm -f $PKG/etc/shibboleth/shibd-* $PKG/etc/shibboleth/*-dist
+rm -f $PKG/etc/shibboleth/shibd-* $PKG/etc/shibboleth/*.dist
 
 # Change configuration files to .new
 find $PKG/etc/shibboleth/ -name *.html | while read cfg ; do mv $cfg $cfg.new ; done
