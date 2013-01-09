@@ -5,7 +5,8 @@ case "$1" in
     su - rabbitmq -c "/usr/bin/rabbitmq-server -detached"
     ;;
   stop)
-    su - rabbitmq -c "/usr/bin/rabbitmqctl stop && killall epmd"
+    su - rabbitmq -c "/usr/bin/rabbitmqctl stop"
+    killall epmd
     ;;
   restart)
     $0 stop
