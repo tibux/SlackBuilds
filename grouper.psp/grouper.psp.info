@@ -5,6 +5,6 @@ DOWNLOAD="http://www.internet2.edu/grouper/release/2.1.2/grouper.psp-2.1.2.tar.g
 MD5SUM="8f7bbf7e5e08b022769484e113ad7a3c"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
+REQUIRES="grouper"
 MAINTAINER="Thibaut Notteboom"
 EMAIL="tib@tibux.org"
-APPROVED=""

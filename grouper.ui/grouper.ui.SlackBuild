@@ -4,7 +4,7 @@
 # Written by Thibaut Notteboom (tib@tibux.org)
 
 PRGNAM=grouper.ui
-VERSION=${VERSION:-2.1.2}
+VERSION=${VERSION:-2.1.3}
 ARCH="noarch"
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
