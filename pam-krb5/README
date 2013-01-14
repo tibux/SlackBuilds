@@ -1,0 +1,7 @@
+Pam-krb5 provides a Kerberos v5 PAM module that supports
+authentication, user ticket cache handling, simple authorization.
+
+It can be configured through either options in the PAM configuration
+itself or through entries in the system krb5.conf file, and it tries
+to work around PAM implementation flaws in commonly-used PAM-enabled
+applications such as OpenSSH and xdm.

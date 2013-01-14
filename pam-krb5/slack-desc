@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+        |-----handy-ruler-----------------------------------------------------|
+pam-krb5: pam-krb5
+pam-krb5:
+pam-krb5: Pam-krb5 provides a Kerberos v5 PAM module that supports
+pam-krb5: authentication, user ticket cache handling, simple authorization.
+pam-krb5:
+pam-krb5: It can be configured through either options in the PAM configuration
+pam-krb5: itself or through entries in the system krb5.conf file, and it tries
+pam-krb5: to work around PAM implementation flaws in commonly-used PAM-enabled
+pam-krb5: applications such as OpenSSH and xdm.
+pam-krb5:
+pam-krb5: Homepage : http://www.eyrie.org/~eagle/software/pam-krb5/
