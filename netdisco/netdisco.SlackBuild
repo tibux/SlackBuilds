@@ -77,10 +77,14 @@ find . \
  -exec chmod 644 {} \;
 
 mkdir -p $PKG/usr/bin
-cp -a netdisco $PKG/usr/bin
+sed -e "s;usr/local/netdisco/netdisco.conf;etc/netdisco.conf;g" netdisco > $PKG/usr/bin/netdisco
+chmod +x $PKG/usr/bin/netdisco
 
 mkdir -p $PKG/usr/share/netdisco
-cp -a html/ netdisco.pm sql/ $PKG/usr/share/netdisco
+cp -a html/ sql/ $PKG/usr/share/netdisco
+
+mkdir -p $PKG/usr/share/perl5/vendor_perl/netdisco
+cp -a netdisco.pm $PKG/usr/share/perl5/vendor_perl
 
 mkdir -p $PKG/etc
 sed -e "s;usr/local;usr/share;g" netdisco.conf > $PKG/etc/netdisco.conf.new
