@@ -59,7 +59,7 @@ set -e
 if [ "$(grep ^netdisco /etc/passwd)" = "" -o "$(grep ^netdisco /etc/group)" = "" ] ; then
   printf "\nYou must have a netdisco user and group.\n\nExample:\n"
   printf "\t# groupadd -g 270 netdisco\n"
-  printf "\t# useradd -d /dev/null -s /bin/false -u 270 -g netdisco netdisco\n\n"
+  printf "\t# useradd -d /var/lib/netdisco -s /bin/bash -u 270 -g netdisco netdisco\n\n"
   exit 1
 fi
 
@@ -87,7 +87,7 @@ mkdir -p $PKG/usr/share/perl5/vendor_perl/netdisco
 cp -a netdisco.pm $PKG/usr/share/perl5/vendor_perl
 
 mkdir -p $PKG/etc
-sed -e "s;usr/local;usr/share;g" netdisco.conf > $PKG/etc/netdisco.conf.new
+sed -e "s;usr/local;var/lib;g" netdisco.conf > $PKG/etc/netdisco.conf.new
 
 mkdir -p $PKG/etc/httpd/extra
 sed -e "s;usr/local;usr/share;g" netdisco_apache.conf > $PKG/etc/httpd/extra/netdisco_apache.conf.new
@@ -96,9 +96,13 @@ sed -e "s;usr/local;usr/share;g" netdisco_apache_dir.conf > $PKG/etc/httpd/extra
 mkdir -p $PKG/etc/rc.d
 sed -e "s;usr/local/netdisco;usr/bin;g" bin/netdisco_daemon > $PKG/etc/rc.d/rc.netdisco.new
 
+mkdir -p $PKG/var/lib/netdisco
+cp -a netdisco-topology.txt $PKG/var/lib/netdisco
+chown netdisco. -R $PKG/var/lib/netdisco
+
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
-  ChangeLog netdisco.crontab netdisco-topology.txt INSTALL README README-API-BACKEND README-API-SHARED UPGRADE \
+  ChangeLog netdisco.crontab INSTALL README README-API-BACKEND README-API-SHARED UPGRADE \
   $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
