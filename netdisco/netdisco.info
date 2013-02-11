@@ -7,6 +7,6 @@ MD5SUM="e8ad6caffff73e43220c2d6a4fd268ac \
         e8466fc212a26c6355d15ab0239b2a11"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="graphviz perl-SNMP-Info"
+REQUIRES="graphviz perl-SNMP-Info postgresql"
 MAINTAINER="Thibaut Notteboom"
 EMAIL="tib@tibux.org"
