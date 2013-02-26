@@ -73,6 +73,7 @@ sed -e "s;usr/local;var/lib;g" netdisco.conf > $PKG/etc/netdisco.conf.new
 
 mkdir -p $PKG/etc/httpd/extra
 sed -e "s;usr/local;usr/share;g" netdisco_apache.conf > $PKG/etc/httpd/extra/netdisco_apache.conf.new
+sed -i "s;usr/share/netdisco/netdisco.conf;etc/netdisco.conf;g" $PKG/etc/httpd/extra/netdisco_apache.conf.new
 sed -e "s;usr/local;usr/share;g" netdisco_apache_dir.conf > $PKG/etc/httpd/extra/netdisco_apache_dir.conf.new
 
 mkdir -p $PKG/etc/rc.d
