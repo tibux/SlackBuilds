@@ -24,6 +24,7 @@
 
 PRGNAM=netdisco
 VERSION=${VERSION:-1.1}
+VERSION_MIBS=${VERSION_MIBS:-1.2}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -46,9 +47,9 @@ fi
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM-$VERSION $PRGNAM-mibs.$VERSION
+rm -rf $PRGNAM-$VERSION $PRGNAM-mibs.$VERSION_MIBS
 tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
-tar xvf $CWD/$PRGNAM-mibs-$VERSION.tar.gz
+tar xvf $CWD/$PRGNAM-mibs-$VERSION_MIBS.tar.gz
 cd $PRGNAM-$VERSION
 chown -R root:root .
 find . \
@@ -63,7 +64,7 @@ chmod +x $PKG/usr/bin/netdisco
 
 mkdir -p $PKG/usr/share/netdisco/mibs
 cp -a html/ sql/ $PKG/usr/share/netdisco
-find ../$PRGNAM-mibs-$VERSION -type d -exec cp -a '{}' $PKG/usr/share/netdisco/mibs \;
+find ../$PRGNAM-mibs-$VERSION_MIBS -type d -exec cp -a '{}' $PKG/usr/share/netdisco/mibs \;
 
 mkdir -p $PKG/usr/share/perl5/vendor_perl/netdisco
 cp -a netdisco.pm $PKG/usr/share/perl5/vendor_perl
