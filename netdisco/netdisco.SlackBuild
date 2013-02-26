@@ -64,7 +64,7 @@ chmod +x $PKG/usr/bin/netdisco
 
 mkdir -p $PKG/usr/share/netdisco/mibs
 cp -a html/ sql/ $PKG/usr/share/netdisco
-find ../$PRGNAM-mibs-$VERSION_MIBS -type d -exec cp -a '{}' $PKG/usr/share/netdisco/mibs \;
+find ../$PRGNAM-mibs-$VERSION_MIBS/* -type d -exec cp -a '{}' $PKG/usr/share/netdisco/mibs \;
 
 mkdir -p $PKG/usr/share/perl5/vendor_perl/netdisco
 cp -a netdisco.pm $PKG/usr/share/perl5/vendor_perl
