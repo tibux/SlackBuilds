@@ -58,8 +58,8 @@ set -e
 
 if [ "$(grep ^shibd /etc/passwd)" = "" -o "$(grep ^shibd /etc/group)" = "" ] ; then
   printf "\nYou must have a shibd user and group.\n\nExample:\n"
-  printf "\t# groupadd -g 268 shibd\n"
-  printf "\t# useradd -d /var/run/shibboleth -s /bin/false -u 268 -g shibd shibd\n\n"
+  printf "\t# groupadd -g 267 shibd\n"
+  printf "\t# useradd -d /var/run/shibboleth -s /bin/false -u 267 -g shibd shibd\n\n"
   exit 1
 fi
 
