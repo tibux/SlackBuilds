@@ -88,6 +88,7 @@ mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
   ChangeLog netdisco.crontab INSTALL README README-API-BACKEND README-API-SHARED UPGRADE $PKG/usr/share/netdisco/html/doc/ \
   $PKG/usr/doc/$PRGNAM-$VERSION
+rm -rf $PKG/usr/share/netdisco/html/doc
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
