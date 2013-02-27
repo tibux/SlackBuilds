@@ -63,6 +63,7 @@ chown -R root:root .
 chmod -R u+w,go+r-w,a-s .
 
 perl Makefile.PL \
+  MP_APXS=/usr/sbin/apxs \
   MP_APR_CONFIG=/usr/bin/apr-1-config \
   INSTALLDIRS=vendor
 make
