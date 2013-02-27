@@ -5,5 +5,6 @@ DOWNLOAD="svn co http://svn.apache.org/repos/asf/perl/modperl/branches/httpd24/ 
 MD5SUM="09d1d9b384f0a8f3bb90376e1d7a6a41"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
+REQUIRES=""
 MAINTAINER="Thibaut Notteboom"
 EMAIL="tib@tibux.org"
