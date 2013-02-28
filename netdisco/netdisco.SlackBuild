@@ -67,7 +67,7 @@ cp -a html/ sql/ $PKG/usr/share/netdisco
 find ../$PRGNAM-mibs-$VERSION_MIBS/* -type d -exec cp -a '{}' $PKG/usr/share/netdisco/mibs \;
 
 mkdir -p $PKG/usr/share/perl5/vendor_perl/netdisco
-cp -a netdisco.pm $PKG/usr/share/perl5/vendor_perl
+cp -a netdisco.pm $PKG/usr/share/perl5/vendor_perl/netdisco
 
 mkdir -p $PKG/etc
 sed -e "s;usr/local;var/lib;g" netdisco.conf > $PKG/etc/netdisco.conf.new
