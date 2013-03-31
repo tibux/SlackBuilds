@@ -1,6 +1,6 @@
 PRGNAM="perl-Apache-DBI"
 VERSION="1.11"
-HOMEPAGE="http://search.cpan.org/~phred/Apache-DBI-1.11/lib/Apache/DBI.pm/"
+HOMEPAGE="http://search.cpan.org/~phred/Apache-DBI-1.11/"
 DOWNLOAD="http://search.cpan.org/CPAN/authors/id/P/PH/PHRED/Apache-DBI-1.11.tar.gz"
 MD5SUM="b973fdf5292bbe6caa38a664d0a83f0b"
 DOWNLOAD_x86_64=""
