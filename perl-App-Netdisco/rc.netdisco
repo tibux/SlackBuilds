@@ -1,0 +1,37 @@
+#!/bin/bash
+
+export NETDISCO_HOME=/var/lib/netdisco
+
+netdisco_start()
+{
+  echo "Start Netdisco..."
+  /usr/bin/netdisco-daemon start
+  /usr/bin/netdsico-web start
+}
+
+netdisco_stop()
+{
+  echo "Shutting down netdisco..."
+  /usr/bin/netdisco-daemon stop
+  /usr/bin/netdsico-web stop
+}
+
+netdisco_restart()
+{
+  netdisco_stop
+  netdisco_start
+}
+
+case $1 in
+'start')
+  netdisco_start
+  ;;
+'stop')
+  netdisco_stop
+  ;;
+'restart')
+  netdisco_restart
+  ;;
+*)
+  echo "usage $0 start|stop|restart"
+esac
