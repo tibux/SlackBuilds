@@ -4,15 +4,11 @@ USER=netdisco
 
 netdisco_start()
 {
-  echo "Start Netdisco..."
   su - $USER -c "/usr/bin/netdisco-daemon start"
-  su - $USER -c "/usr/bin/netdisco-web start"
 }
 
 netdisco_stop()
 {
-  echo "Shutting down netdisco..."
-  su - $USER -c "/usr/bin/netdisco-web stop"
   su - $USER -c "/usr/bin/netdisco-daemon stop"
 }
 

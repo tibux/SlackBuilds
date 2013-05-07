@@ -22,5 +22,6 @@ preserve_perms() {
   config $NEW
 }
 
-preserve_perms etc/rc.d/rc.netdisco.new
+preserve_perms etc/rc.d/rc.netdisco-daemon.new
+preserve_perms etc/rc.d/rc.netdisco-web.new
 config etc/netdisco.conf.new

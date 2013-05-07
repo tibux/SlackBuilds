@@ -67,7 +67,8 @@ make test
 make install DESTDIR=$PKG
 
 mkdir -p $PKG/etc/rc.d 
-cat $CWD/rc.netdisco > $PKG/etc/rc.d/rc.netdisco.new
+cat $CWD/rc.netdisco-daemon > $PKG/etc/rc.d/rc.netdisco-daemon.new
+cat $CWD/rc.netdisco-web > $PKG/etc/rc.d/rc.netdisco-web.new
 
 sed -e "s;/home;var/lib;" \
   share/environments/deployment.yml > $PKG/etc/netdisco.conf.new

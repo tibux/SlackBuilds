@@ -1,0 +1,33 @@
+#!/bin/bash
+
+USER=netdisco
+
+netdisco_start()
+{
+  su - $USER -c "/usr/bin/netdisco-web start"
+}
+
+netdisco_stop()
+{
+  su - $USER -c "/usr/bin/netdisco-web stop"
+}
+
+netdisco_restart()
+{
+  netdisco_stop
+  netdisco_start
+}
+
+case $1 in
+'start')
+  netdisco_start
+  ;;
+'stop')
+  netdisco_stop
+  ;;
+'restart')
+  netdisco_restart
+  ;;
+*)
+  echo "usage $0 start|stop|restart"
+esac
