@@ -1,0 +1,47 @@
+== README.SLACKWARE ==
+
+* TODO : deps to package...
+
+http://search.cpan.org/CPAN/authors/id/M/MI/MIYAGAWA/App-cpanminus-1.6912.tar.gz
+http://search.cpan.org/CPAN/authors/id/J/JJ/JJNAPIORK/App-local-lib-helper-0.07.tar.gz
+http://search.cpan.org/CPAN/authors/id/R/RI/RIBASUSHI/DBIx-Class-0.08250.tar.gz
+http://search.cpan.org/CPAN/authors/id/F/FR/FREW/DBIx-Class-Helpers-2.017000.tar.gz
+http://search.cpan.org/CPAN/authors/id/S/SY/SYMKAT/Daemon-Control-0.001001.tar.gz
+http://search.cpan.org/CPAN/authors/id/Y/YA/YANICK/Dancer-1.3112.tar.gz
+http://search.cpan.org/CPAN/authors/id/I/IR/IRONCAMEL/Dancer-Plugin-DBIC-0.1802.tar.gz
+http://search.cpan.org/CPAN/authors/id/A/AD/ADAMK/File-ShareDir-1.03.tar.gz
+http://search.cpan.org/CPAN/authors/id/M/MA/MARIOROY/MCE-1.408.tar.gz
+http://search.cpan.org/CPAN/authors/id/O/OL/OLIVER/Net-MAC-2.103622.tar.gz
+http://search.cpan.org/CPAN/authors/id/K/KW/KWILLIAMS/Path-Class-0.32.tar.gz
+http://search.cpan.org/CPAN/authors/id/M/MI/MIYAGAWA/Plack-1.0024.tar.gz
+http://search.cpan.org/CPAN/authors/id/K/KA/KAZEBURO/Plack-Middleware-Expires-0.03.tar.gz
+http://search.cpan.org/CPAN/authors/id/M/MS/MSTROUT/Role-Tiny-1.002005.tar.gz
+http://search.cpan.org/CPAN/authors/id/F/FR/FREW/SQL-Translator-0.11016.tar.gz
+http://search.cpan.org/CPAN/authors/id/M/MI/MIYAGAWA/Starman-0.3011.tar.gz
+http://search.cpan.org/CPAN/authors/id/R/RI/RIBASUSHI/namespace-clean-0.24.tar.gz
+http://search.cpan.org/CPAN/authors/id/J/JP/JPEACOCK/version-0.9902.tar.gz
+
+* doc
+
+http://search.cpan.org/~oliver/App-Netdisco-2.007000_001/lib/App/Netdisco.pm
+
+
+* Bootstrap 
+
+The database either needs configuring if new, or updating from the current release of Netdisco (1.x). You also need vendor MAC address prefixes (OUI data) and some MIBs if you want to run the daemon. The following script will take care of all this for you:
+
+ ~/bin/netdisco-deploy
+
+* Behind a Proxy 
+
+By default the web application daemon starts listening on port 5000 and goes into the background. This is ideal for hosting behind a web proxy (e.g. Apache with mod_proxy).
+
+After enabling the proxy and proxy_http modules in Apache, a suitable configuration would be:
+
+ ProxyPass / http://localhost:5000/
+ ProxyPassReverse / http://localhost:5000/
+ 
+ <Proxy *>
+   Order allow,deny
+   Allow from all
+ </Proxy>

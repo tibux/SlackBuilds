@@ -1,19 +1,17 @@
 #!/bin/bash
 
-export NETDISCO_HOME=/var/lib/netdisco
-
 netdisco_start()
 {
   echo "Start Netdisco..."
-  /usr/bin/netdisco-daemon start
-  /usr/bin/netdsico-web start
+  su - $USER -c "/usr/bin/netdisco-daemon start"
+  su - $USER -c "/usr/bin/netdisco-web start"
 }
 
 netdisco_stop()
 {
   echo "Shutting down netdisco..."
-  /usr/bin/netdisco-daemon stop
-  /usr/bin/netdsico-web stop
+  su - $USER -c "/usr/bin/netdisco-web stop"
+  su - $USER -c "/usr/bin/netdisco-daemon stop"
 }
 
 netdisco_restart()
