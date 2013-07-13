@@ -23,7 +23,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=shinken
-VERSION=${VERSION:-1.2.4}
+VERSION=${VERSION:-1.4}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -84,7 +84,7 @@ python setup.py install \
   --var-path=/var/lib/shinken \
   --run-path=/var/run/shinken \
   --log-path=/var/log/shinken \
-  --plugins-path=/usr/libexec/shinken \
+  --plugins-path=/usr/libexec/nagios \
   --owner=shinken \
   --group=shinken
 
@@ -92,16 +92,13 @@ mkdir -p $PKG/etc/logrotate.d
 sed -e "s,@USER@,shinken," -e "s,@GROUP@,shinken," \
   $CWD/$PRGNAM.logrotate > $PKG/etc/logrotate.d/shinken.new
 
-mkdir -p $PKG/usr/libexec/shinken
-install -m 0550 -g shinken libexec/*{.py,.pl,.sh} $PKG/usr/libexec/shinken/
+#mkdir -p $PKG/usr/libexec/shinken
+#install -m 0550 -g shinken libexec/*{.py,.pl,.sh} $PKG/usr/libexec/shinken/
 
 # Fix path in configuration files
 find $PKG/etc/shinken/ -type f -exec sed -i "s|$PKG||g" {} \;
 sed -i "s|$PKG||g" $PKG/etc/default/shinken
-sed -i 's|/usr/lib/nagios/plugins|/usr/libexec/shinken|g' $PKG/etc/shinken/resource.cfg
-
-# Remove useless stuff
-find $PKG/etc/shinken/ -type f -name "*-windows.*" -exec rm -f '{}' \;
+#sed -i 's|/usr/lib/nagios/plugins|/usr/libexec/nagios|g' $PKG/etc/shinken/resource.cfg
 
 # Change configuration files to .new
 find $PKG/etc/shinken/ -type f | while read cfg ; do mv $cfg $cfg.new ; done

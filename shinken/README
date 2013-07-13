@@ -6,6 +6,6 @@ compatibility to Nagios.
 
 Shinken is able to use Nagios’s plugins.
 
-This requires : pysetuptools, Pyro4, MySQL-python
+This requires : pysetuptools, Pyro4
 
-Optional : nagios-plugins
+Optional : nagios-plugins, MySQL-python
