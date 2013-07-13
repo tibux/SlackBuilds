@@ -28,3 +28,4 @@ find etc/shibboleth/ -name *.html.new | while read cfg ; do config $cfg ; done
 find etc/shibboleth/ -name *.logger.new | while read cfg ; do config $cfg ; done
 find etc/shibboleth/ -name *.pem.new | while read cfg ; do config $cfg ; done
 find etc/shibboleth/ -name *.xml.new | while read cfg ; do config $cfg ; done
+
