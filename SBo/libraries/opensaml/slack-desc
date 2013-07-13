@@ -6,14 +6,14 @@
 # customary to leave one space after the ':' except on otherwise blank lines.
 
         |-----handy-ruler------------------------------------------------------|
-opensaml: opensaml
+opensaml: opensaml (FOSS Implementation of OASIS SAML)
 opensaml:
 opensaml: OpenSAML is an open source implementation of the OASIS Security
 opensaml: Assertion Markup Language Specification. It contains a set of open
 opensaml: source C++ classes that support the SAML 1.0, 1.1, and 2.0
 opensaml: specifications.
 opensaml:
-opensaml: homepage: https://wiki.shibboleth.net/confluence/display/OpenSAML/Home
+opensaml: Homepage: https://wiki.shibboleth.net/confluence/display/OpenSAML/Home
 opensaml:
 opensaml:
 opensaml:
