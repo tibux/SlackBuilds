@@ -27,6 +27,8 @@ VERSION=${VERSION:-4.6}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
+KERBEROS="krb5"
+
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
     i?86) ARCH=i486 ;;
@@ -74,7 +76,7 @@ CXXFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
   --mandir=/usr/man \
-  --with-krb5=/usr/heimdal \
+  --with-krb5=/usr/${KERBEROS} \
   --docdir=/usr/doc/$PRGNAM-$VERSION \
   --build=$ARCH-slackware-linux
 
