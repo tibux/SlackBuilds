@@ -5,6 +5,6 @@ DOWNLOAD="http://search.cpan.org/CPAN/authors/id/O/OL/OLIVER/App-Netdisco-2.0140
 MD5SUM="b57210b7a8dc15499ddfdd49b468218b"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="perl-DBD-Pg perl-DBD-SQLite perl-JSON perl-List-MoreUtils perl-NetAddr-IP perl-Template-Toolkit perl-SNMP-Info perl-Socket6 perl-yaml"
+REQUIRES="postgresql perl-DBD-Pg perl-DBD-SQLite perl-JSON perl-List-MoreUtils perl-NetAddr-IP perl-Template-Toolkit perl-SNMP-Info perl-Socket6 perl-yaml"
 MAINTAINER="Thibaut Notteboom"
 EMAIL="tib@tibux.org"
