@@ -28,7 +28,14 @@ BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
 SRCNAM="$(printf $PRGNAM | cut -d- -f2-)"
-ARCH=noarch
+
+if [ -z "$ARCH" ]; then
+  case "$( uname -m )" in
+    i?86) ARCH=i486 ;;
+    arm*) ARCH=arm ;;
+       *) ARCH=$( uname -m ) ;;
+  esac
+fi
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
