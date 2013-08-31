@@ -1,47 +1,75 @@
-== README.SLACKWARE ==
+## README.SLACKWARE ##
 
-* TODO : deps to package...
+# Documentation
+# - http://search.cpan.org/~oliver/App-Netdisco-2.014000/lib/App/Netdisco.pm
 
-http://search.cpan.org/CPAN/authors/id/M/MI/MIYAGAWA/App-cpanminus-1.6912.tar.gz
-http://search.cpan.org/CPAN/authors/id/J/JJ/JJNAPIORK/App-local-lib-helper-0.07.tar.gz
-http://search.cpan.org/CPAN/authors/id/R/RI/RIBASUSHI/DBIx-Class-0.08250.tar.gz
-http://search.cpan.org/CPAN/authors/id/F/FR/FREW/DBIx-Class-Helpers-2.017000.tar.gz
-http://search.cpan.org/CPAN/authors/id/S/SY/SYMKAT/Daemon-Control-0.001001.tar.gz
-http://search.cpan.org/CPAN/authors/id/Y/YA/YANICK/Dancer-1.3112.tar.gz
-http://search.cpan.org/CPAN/authors/id/I/IR/IRONCAMEL/Dancer-Plugin-DBIC-0.1802.tar.gz
-http://search.cpan.org/CPAN/authors/id/A/AD/ADAMK/File-ShareDir-1.03.tar.gz
-http://search.cpan.org/CPAN/authors/id/M/MA/MARIOROY/MCE-1.408.tar.gz
-http://search.cpan.org/CPAN/authors/id/O/OL/OLIVER/Net-MAC-2.103622.tar.gz
-http://search.cpan.org/CPAN/authors/id/K/KW/KWILLIAMS/Path-Class-0.32.tar.gz
-http://search.cpan.org/CPAN/authors/id/M/MI/MIYAGAWA/Plack-1.0024.tar.gz
-http://search.cpan.org/CPAN/authors/id/K/KA/KAZEBURO/Plack-Middleware-Expires-0.03.tar.gz
-http://search.cpan.org/CPAN/authors/id/M/MS/MSTROUT/Role-Tiny-1.002005.tar.gz
-http://search.cpan.org/CPAN/authors/id/F/FR/FREW/SQL-Translator-0.11016.tar.gz
-http://search.cpan.org/CPAN/authors/id/M/MI/MIYAGAWA/Starman-0.3011.tar.gz
-http://search.cpan.org/CPAN/authors/id/R/RI/RIBASUSHI/namespace-clean-0.24.tar.gz
-http://search.cpan.org/CPAN/authors/id/J/JP/JPEACOCK/version-0.9902.tar.gz
+# Dependencies :
+# - sbopkg
+  cd /tmp
+  wget http://sbopkg.googlecode.com/files/sbopkg-0.36.0-noarch-1_cng.tgz
+  installpkg sbopkg-0.36.0-noarch-1_cng.tgz
+# - SBo : perl-CPANPLUS-Dist-Slackware & postresql
+  groupadd -g 209 postgres
+  useradd -u 209 -g 209 -d /var/lib/pgsql postgres
+  sbopkg -r # Sync the remote repository with the local mirror and then quit.
+  sbopkg -i "fakeroot perl-CPANPLUS-Dist-Slackware postgresql"
+# - others perl depencencies can be generate by perl-CPANPLUS-Dist-Slackware
+  cpan2dist --format CPANPLUS::Dist::Slackware App::Netdisco
+  rm -f /tmp/perl-App-Netdisco-*
+  upgradepkg --install-new /tmp/perl-*_CPANPLUS.tgz
 
-* doc
+# Build
+  sh perl-App-Netdisco.SlackBuild
+  installpkg /tmp/perl-App-Netdisco-*.tgz
 
-http://search.cpan.org/~oliver/App-Netdisco-2.007000_001/lib/App/Netdisco.pm
+# Database / Bootstrap
+  su postgres -c "initdb -D /var/lib/pgsql/data"
+  /etc/rc.d/rc.postgresql start
+  su - postgres -c "createuser -DRSP netdisco"
+    Enter password for new role:
+    Enter it again:
+  su - postgres -c "createdb -O netdisco netdisco"
+  su - netdisco -c "netdisco-deploy"
+  /etc/rc.d/rc.netdisco-daemon start
+  /etc/rc.d/rc.netdisco-web start
 
+# Init
+# - /etc/rc.d/rc.local
+  # Startup postgresql
+  if [ -x /etc/rc.d/rc.postgresql ]; then
+    /etc/rc.d/rc.postgresql start
+  fi
+  # Starup Netdisco
+  if [ -x /etc/rc.d/rc.netdisco-daemon ]; then
+    /etc/rc.d/rc.netdisco-daemon start
+  fi
+  if [ -x /etc/rc.d/rc.netdisco-web ]; then
+    /etc/rc.d/rc.netdisco-web start
+  fi
+# - /etc/rc.d/rc.local_shutdown
+  # Stop Netdisco
+  if [ -x /etc/rc.d/rc.netdisco-daemon ]; then
+    /etc/rc.d/rc.netdisco-daemon stop
+  fi
+  if [ -x /etc/rc.d/rc.netdisco-web ]; then
+    /etc/rc.d/rc.netdisco-web stop
+  fi
+  # Stop postgres
+  if [ -x /etc/rc.d/rc.postgresql ]; then
+    /etc/rc.d/rc.postgresql stop
+  fi
 
-* Bootstrap 
+# Behind a Proxy 
+# - By default the web application daemon starts listening on port 5000
+#   and goes into the background. This is ideal for hosting behind a web
+#   proxy (e.g. Apache with mod_proxy).
+# - After enabling the proxy and proxy_http modules in Apache, a suitable
+#   configuration would be:
 
-The database either needs configuring if new, or updating from the current release of Netdisco (1.x). You also need vendor MAC address prefixes (OUI data) and some MIBs if you want to run the daemon. The following script will take care of all this for you:
-
- ~/bin/netdisco-deploy
-
-* Behind a Proxy 
-
-By default the web application daemon starts listening on port 5000 and goes into the background. This is ideal for hosting behind a web proxy (e.g. Apache with mod_proxy).
-
-After enabling the proxy and proxy_http modules in Apache, a suitable configuration would be:
-
- ProxyPass / http://localhost:5000/
- ProxyPassReverse / http://localhost:5000/
+  ProxyPass / http://localhost:5000/
+  ProxyPassReverse / http://localhost:5000/
  
- <Proxy *>
-   Order allow,deny
-   Allow from all
- </Proxy>
+  <Proxy *>
+    Order allow,deny
+    Allow from all
+  </Proxy>

@@ -95,7 +95,9 @@ sed -e "s;/home;var/lib;" \
   share/environments/deployment.yml > $PKG/etc/netdisco.conf.new
 
 mkdir -p $PKG/var/lib/netdisco/environments $PKG/var/log/netdisco
+echo "export PERL_LOCAL_LIB_ROOT=/usr/lib64/perl5" > $PKG/var/lib/netdisco/.bash_profile
 chown netdisco. -R $PKG/var/lib/netdisco $PKG/var/log/netdisco
+
 cd $PKG/var/lib/netdisco
   ln -sf ../../log/netdisco logs
   ln -sf ../../../../etc/netdisco.conf environments/deployment.yml

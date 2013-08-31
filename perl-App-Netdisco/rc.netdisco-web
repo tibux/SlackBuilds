@@ -4,12 +4,12 @@ USER=netdisco
 
 netdisco_start()
 {
-  su - $USER -c "export PERL_LOCAL_LIB_ROOT=/usr/lib64/perl5; /usr/bin/netdisco-web start"
+  su - $USER -c "/usr/bin/netdisco-web start"
 }
 
 netdisco_stop()
 {
-  su - $USER -c "export PERL_LOCAL_LIB_ROOT=/usr/lib64/perl5; /usr/bin/netdisco-web stop"
+  su - $USER -c "/usr/bin/netdisco-web stop"
 }
 
 netdisco_restart()
