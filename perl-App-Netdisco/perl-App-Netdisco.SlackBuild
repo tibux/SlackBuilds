@@ -87,6 +87,8 @@ make
 make test
 make install DESTDIR=$PKG
 
+mkdir -p $PKG/usr/share/perl5/vendor_perl/auto/share/dist/App-Netdisco/sessions
+
 mkdir -p $PKG/etc/rc.d 
 cat $CWD/rc.netdisco-daemon > $PKG/etc/rc.d/rc.netdisco-daemon.new
 cat $CWD/rc.netdisco-web > $PKG/etc/rc.d/rc.netdisco-web.new

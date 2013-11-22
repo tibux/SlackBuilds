@@ -30,6 +30,7 @@
     Enter it again:
   su - postgres -c "createdb -O netdisco netdisco"
   su - netdisco -c "netdisco-deploy"
+  chmod +x /etc/rc.d/rc.netdisco-*
   /etc/rc.d/rc.netdisco-daemon start
   /etc/rc.d/rc.netdisco-web start
 
@@ -58,6 +59,14 @@
   if [ -x /etc/rc.d/rc.postgresql ]; then
     /etc/rc.d/rc.postgresql stop
   fi
+
+# User
+# /etc/netdisco.conf -> no_auth true
+su - postgres
+psql -U netdisco
+netdisco=> insert into users (username) values ('guest');
+netdisco=> update users set port_control = true where username = 'guest';
+netdisco=> update users set admin = true where username = 'guest';
 
 # Behind a Proxy 
 # - By default the web application daemon starts listening on port 5000
