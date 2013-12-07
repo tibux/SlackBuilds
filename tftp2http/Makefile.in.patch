@@ -1,0 +1,21 @@
+--- Makefile.in.orig	2013-12-07 20:56:29.746776822 +0100
++++ Makefile.in	2013-12-07 20:57:39.630700037 +0100
+@@ -479,12 +479,12 @@
+ 
+ install:
+ 	@echo "Install"
+-	install -m 0755 -d $(sbindir)
+-	install -m 0755 -d $(sysconfdir)/xinetd.d
+-	install -m 0755 -d $(mandir)/man8
+-	install -m 755 tftp2http $(sbindir)/tftp2http
+-	install -m 644 man/tftp2http.8 $(mandir)/man8/tftp2http.8.gz
+-	m4 -D BIN=$(sbindir)/tftp2http share/tftp > $(sysconfdir)/xinetd.d/tftp
++	install -m 0755 -d $(DESTDIR)$(sbindir)
++	install -m 0755 -d $(DESTDIR)$(sysconfdir)/xinetd.d
++	install -m 0755 -d $(DESTDIR)$(mandir)/man8
++	install -m 755 tftp2http $(DESTDIR)$(sbindir)/tftp2http
++	install -m 644 man/tftp2http.8.gz $(DESTDIR)$(mandir)/man8/tftp2http.8.gz
++	m4 -D BIN=$(sbindir)/tftp2http share/tftp > $(DESTDIR)$(sysconfdir)/xinetd.d/tftp
+ 
+ uninstall:
+ 	@echo "Uninstall"

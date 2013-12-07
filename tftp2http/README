@@ -1,0 +1,7 @@
+tftp2http is xinetd service which listen tftp request and translate it
+to http request (one to one). It can also run as standalone server. It
+tftp-http bridge with support PUT and GET method to http server.
+
+The tftp protocol is often used to boot diskless workstations,
+download configuration files to network-aware printers, and to start
+the installation process for some operating systems.

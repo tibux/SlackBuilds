@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+         |-----handy-ruler------------------------------------------------------|
+tftp2http: tftp2http (tftp2http transfere TFTP to HTTP requests)
+tftp2http:
+tftp2http: tftp2http is xinetd service which listen tftp request and translate it
+tftp2http: to http request (one to one). It can also run as standalone server. It
+tftp2http: tftp-http bridge with support PUT and GET method to http server.
+tftp2http:
+tftp2http: The tftp protocol is often used to boot diskless workstations,
+tftp2http: download configuration files to network-aware printers, and to start
+tftp2http: the installation process for some operating systems.
+tftp2http:
+tftp2http:
