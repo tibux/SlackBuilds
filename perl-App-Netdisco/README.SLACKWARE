@@ -8,11 +8,11 @@
   cd /tmp
   wget http://sbopkg.googlecode.com/files/sbopkg-0.36.0-noarch-1_cng.tgz
   installpkg sbopkg-0.36.0-noarch-1_cng.tgz
-# - SBo : perl-CPANPLUS-Dist-Slackware & postresql
+# - SBo : perl-CPANPLUS-Dist-Slackware, postresql & perl-DBD-Pg
   groupadd -g 209 postgres
   useradd -u 209 -g 209 -d /var/lib/pgsql postgres
   sbopkg -r # Sync the remote repository with the local mirror and then quit.
-  sbopkg -i "fakeroot perl-CPANPLUS-Dist-Slackware postgresql"
+  sbopkg -i "fakeroot perl-CPANPLUS-Dist-Slackware postgresql perl-DBD-Pg"
 # - others perl depencencies can be generate by perl-CPANPLUS-Dist-Slackware
   cpan2dist --format CPANPLUS::Dist::Slackware App::Netdisco
   rm -f /tmp/perl-App-Netdisco-*
