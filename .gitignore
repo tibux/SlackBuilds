@@ -2,3 +2,4 @@
 #!foo.html
 *.tar.gz
 *.zip
+*.tar.bz2
