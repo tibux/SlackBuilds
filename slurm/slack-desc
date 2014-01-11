@@ -6,7 +6,7 @@
 # customary to leave one space after the ':' except on otherwise blank lines.
 
      |-----handy-ruler------------------------------------------------------|
-slurm: SLURM (A Highly Scalable Resource Manager)
+slurm: SLURM (Simple Linux Utility for Resource Management)
 slurm:
 slurm: SLURM is an open-source resource manager designed for Linux clusters
 slurm: of all sizes. It provides three key functions. First it allocates
