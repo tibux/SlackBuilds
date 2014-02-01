@@ -22,9 +22,7 @@ preserve_perms() {
   config $NEW
 }
 
-preserve_perms etc/rc.d/rc.slurmd.new
-preserve_perms etc/rc.d/rc.slurmctld.new
+#preserve_perms etc/rc.d/rc.slurmd.new
+#preserve_perms etc/rc.d/rc.slurmctld.new
 
-for c in `ls /etc/slurm/*.new`; do
-  config etc/slurm/${c}.new
-done
+find etc/slurm/ -name *.new | while read cfg ; do config $cfg ; done

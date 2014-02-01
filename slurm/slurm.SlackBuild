@@ -56,6 +56,14 @@ fi
 
 set -e
 
+# Check if the 'slurm' user & group exist:
+if [ "$(grep ^slurm /etc/passwd)" = "" -o "$(grep ^slurm /etc/group)" = "" ] ; then
+  printf "\nYou must have a slurm user and group.\n\nExample:\n"
+  printf "\t# groupadd -g 300 slurm\n"
+  printf "\t# useradd -d /dev/null -s /bin/false -u 300 -g slurm slurm\n\n"
+  exit 1
+fi
+
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
@@ -72,6 +80,7 @@ find -L . \
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
+  --sysconfdir=/etc/slurm \
   --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --mandir=/usr/man \
@@ -86,6 +95,9 @@ for c in bluegene.conf cgroup.conf cgroup.release_common cgroup_allowed_devices_
   cat etc/${c}.example > $PKG/etc/slurm/${c}.new
 done
 cat etc/slurm.epilog.clean > $PKG/etc/slurm/slurm.epilog.clean.new
+
+mkdir -p $PKG/var/log/slurm
+chown slurm:slurm $PKG/var/log/slurm
 
 mkdir -p $PKG/etc/rc.d
 #cat $CWD/rc.slurmd > $PKG/etc/rc.d/rc.slurmd.new
