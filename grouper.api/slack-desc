@@ -5,15 +5,15 @@
 # make exactly 11 lines for the formatting to be correct.  It's also
 # customary to leave one space after the ':' except on otherwise blank lines.
 
-       |-----handy-ruler------------------------------------------------------|
-grouper: grouper (Internet2's Grouper Toolkit))
-grouper:
-grouper: Internet2's Grouper Toolkit enables project managers, departments,
-grouper: institutions and end users to create and manage institutional and
-grouper: personal groups, roles, and permissions. It puts control of a group
-grouper: in the hands of its steward and enables the person to manage the
-grouper: membership and what resources it can access.
-grouper:
-grouper: This package provides grouper.api.
-grouper:
-grouper: Homepage : http://www.internet2.edu/grouper/ 
+           |-----handy-ruler------------------------------------------------------|
+grouper.api: grouper (Internet2's Grouper Toolkit))
+grouper.api:
+grouper.api: Internet2's Grouper Toolkit enables project managers, departments,
+grouper.api: institutions and end users to create and manage institutional and
+grouper.api: personal groups, roles, and permissions. It puts control of a group
+grouper.api: in the hands of its steward and enables the person to manage the
+grouper.api: membership and what resources it can access.
+grouper.api:
+grouper.api: This package provides grouper.api.
+grouper.api:
+grouper.api: Homepage : http://www.internet2.edu/grouper/ 
