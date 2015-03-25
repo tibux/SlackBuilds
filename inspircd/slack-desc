@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+        |-----handy-ruler------------------------------------------------------|
+inspircd: inspircd (a stable, modern and lightweight IRC daemons)
+inspircd:
+inspircd: InspIRCd is a modular Internet Relay Chat (IRC) server written in C++
+inspircd: for Linux, BSD, Windows and Mac OS X systems which was created from
+inspircd: scratch to be stable, modern and lightweight.
+inspircd:
+inspircd:
+inspircd: http://www.inspircd.org/
+inspircd:
+inspircd:
+inspircd:
