@@ -12,4 +12,3 @@ config() {
 }
 
 config etc/httpd/extra/mod_passenger.conf.new
-
