@@ -6,8 +6,8 @@
 # customary to leave one space after the ':' except on otherwise blank lines.
 
             |-----handy-ruler------------------------------------------------------|
-rubygem-rack: rubygem-rack (provides minimal, modular and adaptable interface for
-rubygem-rack: developing web applications in Ruby)
+rubygem-rack: rubygem-rack (minimal, modular and adaptable interface)
+rubygem-rack:
 rubygem-rack:
 rubygem-rack: Rack provides a minimal, modular and adaptable interface for
 rubygem-rack: developing web applications in Ruby. By wrapping HTTP requests and
