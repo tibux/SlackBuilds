@@ -1,4 +1,4 @@
-PRGNAM="python-bottle-mysql"
+PRGNAM="bottle-mysql"
 VERSION="0.2.2"
 HOMEPAGE="https://pypi.python.org/pypi/bottle-mysql/"
 DOWNLOAD="https://pypi.python.org/packages/source/b/bottle-mysql/bottle-mysql-0.2.2.tar.gz"
