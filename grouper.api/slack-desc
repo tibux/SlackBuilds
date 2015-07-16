@@ -16,4 +16,4 @@ grouper.api: membership and what resources it can access.
 grouper.api:
 grouper.api: This package provides grouper.api.
 grouper.api:
-grouper.api: Homepage : http://www.internet2.edu/grouper/ 
+grouper.api:

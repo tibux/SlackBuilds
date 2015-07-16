@@ -4,6 +4,4 @@ personal groups, roles, and permissions. It puts control of a group
 in the hands of its steward and enables the person to manage the
 membership and what resources it can access.
 
-This package provides grouper.ui
-
-This requires apache-ant, grouper, tomcat
+This package provides grouper.ui.
