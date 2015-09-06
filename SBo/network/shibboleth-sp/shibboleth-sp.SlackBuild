@@ -85,7 +85,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --localstatedir=/var \
   --build=$ARCH-slackware-linux
 
-make -j9
+make
 make install-strip DESTDIR=$PKG
 
 mkdir -p $PKG/etc/httpd/extra
