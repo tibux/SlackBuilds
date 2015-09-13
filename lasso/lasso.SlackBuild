@@ -75,6 +75,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --enable-static=no \
+  --enable-gtk-doc \
   --disable-php5 \
   --build=$ARCH-slackware-linux
   #--with-php5-config-dir=/etc/php.d \
