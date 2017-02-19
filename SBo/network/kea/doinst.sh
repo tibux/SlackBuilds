@@ -22,5 +22,6 @@ preserve_perms() {
   config $NEW
 }
 
-preserve_perms etc/rc.d/rc.rabbitmq.new
-config etc/rabbitmq/rabbitmq-env.conf.new
+preserve_perms etc/rc.d/rc.kea.new
+config etc/kea/kea.conf.new
+config etc/kea/keactrl.conf.new
