@@ -84,6 +84,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --with-openssl \
   --with-dhcp-mysql \
   --with${PGSQL}-dhcp-pgsql \
+  --disable-static \
   --build=$ARCH-slackware-linux
 
 make
