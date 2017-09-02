@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+       |-----handy-ruler------------------------------------------------------|
+nx-libs: nx-libs (NX X11 protocol compression libraries)
+nx-libs:
+nx-libs: NX is a software suite which implements very efficient compression of
+nx-libs: the X11 protocol. This increases performance when using X
+nx-libs: applications over a network, especially a slow one.
+nx-libs:
+nx-libs: This package provides the core nx-X11 libraries customized for
+nx-libs: nxagent/x2goagent.
+nx-libs:
+nx-libs:
+nx-libs:
