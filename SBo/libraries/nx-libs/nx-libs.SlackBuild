@@ -69,8 +69,8 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-#CFLAGS="$SLKCFLAGS" \
-#CXXFLAGS="$SLKCFLAGS" \
+CFLAGS="$SLKCFLAGS" \
+CXXFLAGS="$SLKCFLAGS" \
 make -j9 \
   PREFIX=/usr \
   CONFIGURE="./configure --prefix=/usr --libdir=/usr/lib${LIBDIRSUFFIX} --libexecdir=/usr/lib${LIBDIRSUFFIX} --includedir=/usr/include" \
@@ -93,7 +93,12 @@ sed -i "s|NX_LIBS=/usr/lib/nx|NX_LIBS=/usr/lib${LIBDIRSUFFIX}/nx|g" \
 
 mkdir -p $PKG/usr/lib${LIBDIRSUFFIX}/x2go/bin
 cd $PKG/usr/lib${LIBDIRSUFFIX}/x2go/bin
-  ln -sf ../..//nx/bin/nxagent x2goagent
+  ln -sv ../../nx/bin/nxagent x2goagent
+cd -
+
+cd $PKG/usr/lib${LIBDIRSUFFIX}/nx/X11/Xinerama
+  ln -sv ../../../libX11.so.6 libNX_X11.so.6
+  ln -sv ../../../libXext.so.6 libNX_Xext.so.6
 cd -
 
 mv $PKG/usr/share/man $PKG/usr/man
