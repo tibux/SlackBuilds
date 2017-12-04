@@ -1,0 +1,73 @@
+#!/bin/sh
+
+DAEMONS="zebra bgpd ripd ripngd ospfd ospf6d isisd pimd ldpd nhrpd eigrpd babeld"
+SOCKET_DIR="/var/run/frr"
+
+frr_start() {
+  for NAME in $DAEMONS; do
+    PIDFILE=$SOCKET_DIR/$NAME.pid
+
+    if [ -r /etc/frr/$NAME.conf ] ; then
+      if [ -f $PIDFILE ]; then
+        echo "$NAME is already running..."
+        exit 1
+      fi
+      echo "Starting $NAME:  /usr/sbin/$NAME -d "
+      /usr/sbin/$NAME -d
+    fi
+  done
+}
+
+frr_stop() {
+  for NAME in $DAEMONS; do
+    PIDFILE=${SOCKET_DIR}/$NAME.pid
+    VTYFILE=${SOCKET_DIR}/$NAME.vty
+    
+    if [ -f $PIDFILE ]; then
+      echo -n "Stopping $NAME: "
+      killall $NAME 2>/dev/null && echo -n "done" || echo -n "not started"
+      echo
+      rm -f $PIDFILE $VTYFILE ${SOCKET_DIR}/zserv.api
+    fi
+
+    if $NAME == "zebra"; then
+      ip route flush proto zebra
+    fi
+  done
+}
+
+frr_reload() {
+  for NAME in $DAEMONS; do
+    PIDFILE=${SOCKET_DIR}/$NAME.pid
+
+    if [ -f $PIDFILE ]; then
+      PID=$(cat $PIDFILE)
+      echo -n "Reloading $NAME: "
+      kill -HUP $PID && echo -n "done" || echo -n "not started"
+      echo
+    fi
+  done
+}
+
+frr_restart() {
+  frr_stop
+  sleep 1
+  frr_start
+}
+
+case "$1" in
+'start')
+  frr_start
+  ;;
+'stop')
+  frr_stop
+  ;;
+'restart')
+  frr_restart
+  ;;
+'reload')
+  frr_reload
+  ;;
+*)
+  echo "usage $0 start|stop|restart|reload"
+esac
