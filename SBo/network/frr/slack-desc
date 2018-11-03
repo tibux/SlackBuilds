@@ -12,8 +12,8 @@ frr: FRRouting is free software that manages various IPv4 and IPv6 routing
 frr: protocols.
 frr:
 frr: Currently FRRouting supports BGP4, BGP4+, OSPFv2, OSPFv3, RIPv1,
-frr: RIPv2, RIPng, PIM-SM/MSDP and LDP as well as very early support for
-frr: IS-IS, EIGRP and NHRP.
+frr: RIPv2, RIPng, IS-IS, PIM-SM/MSDP and LDP as well as very early
+frr: support for EIGRP and NHRP.
 frr:
-frr:
+frr: FRRouting is a fork of Quagga and conflits with it.
 frr:
