@@ -10,17 +10,15 @@ Groupname and Username
 You must have the 'frr' group and user to run this script,
 for example:
 
-    # groupadd -g 350 frr
-    # useradd -d /var/run/frr -s /bin/false -u 350 -g frr frr
+    # groupadd -g 357 frr
+    # useradd -d /var/run/frr -s /bin/false -u 357 -g frr frr
 
 You also need a 'frrvty' group :
 
-    # groupadd -g 349 frrvty
+    # groupadd -g 358 frrvty
 
 And to add 'frr' to 'frrvty' group
 
     # usermod -a -G frrvty frr
-
-See /usr/doc/frr-*/README.SBo for configuration help.
 
 WARNING : this package conflicts with quagga.
