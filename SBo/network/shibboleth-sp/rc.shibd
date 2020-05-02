@@ -7,6 +7,8 @@ SHIBD_PID=/var/run/shibboleth/shibd.pid
 DAEMON_OPTS="-f -u $SHIBD_USER -g $SHIBD_USER -w $SHIBD_WAIT -p $SHIBD_PID"
 
 shibd_start() {
+  mkdir -p `dirname $SHIBD_PID`
+  chown shibd:shibd `dirname $SHIBD_PID`
   if [ -f $SHIBD_PID ]; then
     echo "The shibd service is already running"
   else
