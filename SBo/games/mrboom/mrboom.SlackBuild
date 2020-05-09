@@ -85,6 +85,10 @@ if pkg-config --exists sdl2; then
   install -m 0644 Assets/$PRGNAM.desktop $PKG/usr/share/applications
   install -m 0644 $CWD/mrboom.svg $PKG/usr/share/pixmaps
 
+  for i in 16x16 32x32 48x48 256x256; do
+    install -D -m0644 Assets/hicolor/$i/apps/$PRGNAM.png $PKG/use/share/icons/hicolor/$i/apps/$PRGNAM.png
+  done
+
   find $PKG/usr/man -type f -exec gzip -9 {} \;
   for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 fi
